@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import Header from './Components/Common/header';
+import Footer from './Components/Common/footer';
+import Home from './Components/Pages/home';
+import { Route, Router, Routes } from 'react-router-dom';
+import Product from './Components/Pages/product';
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    // Smooth scrolling for anchor links
+    const handleAnchorClick = (e) => {
+      const href = e.currentTarget.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', handleAnchorClick);
+    });
+
+    return () => {
+      anchorLinks.forEach(link => {
+        link.removeEventListener('click', handleAnchorClick);
+      });
+    };
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen">
+
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/product' element={<Product/>} />
+      </Routes>
+      {/* <Home /> */}
+      
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
