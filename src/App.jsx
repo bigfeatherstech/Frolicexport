@@ -4,6 +4,9 @@ import Footer from './Components/Common/footer';
 import Home from './Components/Pages/home';
 import { Route, Router, Routes } from 'react-router-dom';
 import Product from './Components/Pages/product';
+import About from './Components/Pages/about';
+import Ourteam from './Components/Pages/ourteam';
+import BottomToTop from './Components/Common/bottomtotop';
 
 function App() {
   useEffect(() => {
@@ -37,15 +40,15 @@ function App() {
 
   return (
     <div className="min-h-screen">
-
       <Header />
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/product' element={<Product/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/ourteam' element={<Ourteam/>} />
       </Routes>
-      {/* <Home /> */}
-      
       <Footer />
+      <BottomToTop />
     </div>
   );
 }

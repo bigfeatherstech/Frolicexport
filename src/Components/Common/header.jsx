@@ -131,7 +131,7 @@ const Header = () => {
             onClick={closeAll}
           >
             <img
-              src="https://frolicexport.com/assets/img/logo.png"
+              src="\src\assets\logo.png"
               className="w-40 h-auto"
               alt="Frolic Exports"
             />
@@ -271,7 +271,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/design-foundation"
+                  to="/ourteam"
                   className={({ isActive }) => 
                     `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
                       isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
@@ -341,7 +341,10 @@ const Header = () => {
 
           {/* Right Section: Glamstra Button - Moved more inside with increased padding */}
           <div className="hidden md:flex items-center space-x-4 mr-4 lg:mr-8 xl:mr-12">
-            <button className="bg-[#d4af37] text-white font-semibold px-6 py-3 rounded-md shadow-md hover:bg-[#c5a028] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-opacity-50">
+            {/* <button className="bg-[#d4af37] text-white font-semibold px-6 py-3 rounded-md shadow-md hover:bg-[#c5a028] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-opacity-50">
+              Glamstra
+            </button> */}
+            <button className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40">
               Glamstra
             </button>
           </div>
