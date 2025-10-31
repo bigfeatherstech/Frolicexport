@@ -7,6 +7,10 @@ import Product from './Components/Pages/product';
 import About from './Components/Pages/about';
 import Ourteam from './Components/Pages/ourteam';
 import BottomToTop from './Components/Common/bottomtotop';
+import Career from './Components/Pages/Career';
+import Contact from './Components/Pages/Contact';
+import Infrastructure from './Components/Pages/Infrastructure';
+import TradeEvents from './Components/Pages/TradeEvents';
 
 function App() {
   useEffect(() => {
@@ -42,13 +46,20 @@ function App() {
     <div className="min-h-screen">
       <Header />
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/product' element={<Product/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/ourteam' element={<Ourteam/>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/career' element={<Career />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/ourteam' element={<Ourteam />} />
+        <Route path='/brand-showcases' element={<Infrastructure />} />
+        <Route path='/design-foundation' element={<TradeEvents />} />
+
+     
+
       </Routes>
-      <Footer />
-      <BottomToTop />
+      {/* <Footer />
+      <BottomToTop /> */}
     </div>
   );
 }
