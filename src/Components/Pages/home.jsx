@@ -269,23 +269,25 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Fashion Vision Section */}
-      <section className="fashion-vision py-20 bg-gradient-to-br from-ivory to-beige relative overflow-hidden">
-        <div className="absolute -top-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-light to-transparent opacity-70 z-0"></div>
+    {/* Fashion Vision Section */}
+    <section className="fashion-vision py-20 bg-gradient-to-br from-ivory to-beige relative overflow-hidden">
+      <div className="absolute -top-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-light to-transparent opacity-70 z-0"></div>
+      
+      <div className="container mx-auto px-5 relative z-10">
+        <div className="section-header text-center mb-16" data-aos="fade-up">
+          <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4 text-dark">
+            How can I transform my fashion vision into wearable art?
+          </h2>
+          <p className="max-w-2xl mx-auto text-gray-600">
+            Our step-by-step process ensures your vision becomes a reality with precision and creativity
+          </p>
+        </div>
         
-        <div className="container mx-auto px-5 relative z-10">
-          <div className="section-header text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4 text-dark">
-              How can I transform my fashion vision into wearable art?
-            </h2>
-            <p className="max-w-2xl mx-auto text-gray-600">
-              Our step-by-step process ensures your vision becomes a reality with precision and creativity
-            </p>
-          </div>
-          
-          <div className="steps-container flex flex-wrap justify-center gap-8 mt-16">
-            {[1, 2, 3, 4, 5].map((step, index) => (
-              <div key={step} className="step-card bg-white rounded-2xl p-10 text-center shadow-lg transition-all duration-300 w-full max-w-sm hover:-translate-y-2 hover:shadow-xl relative overflow-hidden" data-aos="fade-up" data-aos-delay={index * 100}>
+        <div className="steps-container">
+          {/* First Row - 3 Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 mx-auto mb-12">
+            {[1, 2, 3].map((step, index) => (
+              <div key={step} className="step-card bg-white cursor-pointer rounded-2xl p-10 text-center shadow-lg transition-all duration-300 w-full max-w-sm hover:-translate-y-2 hover:shadow-xl relative overflow-hidden" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-pink"></div>
                 <div className="step-icon w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pink-light to-gold-light rounded-full flex items-center justify-center relative transition-all duration-300 hover:scale-110 hover:rotate-6">
                   <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -300,16 +302,43 @@ const Home = () => {
                     {[
                       "Concept & Design",
                       "Material Selection",
-                      "Pattern Making",
-                      "Prototyping & Fitting",
-                      "Production & Quality Control"
+                      "Pattern Making"
                     ][index]}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
                     {[
                       "We begin by understanding your vision, inspiration, and requirements. Our designers create initial sketches and mood boards to bring your ideas to life.",
                       "We help you choose the perfect fabrics and materials that align with your design vision, ensuring quality, sustainability, and the right texture and drape.",
-                      "Our skilled pattern makers translate designs into precise patterns, ensuring perfect fit and silhouette while maintaining the integrity of your original vision.",
+                      "Our skilled pattern makers translate designs into precise patterns, ensuring perfect fit and silhouette while maintaining the integrity of your original vision."
+                    ][index]}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Second Row - 2 Cards Centered with Equal Size */}
+          <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 mx-auto max-w-4xl">
+            {[4, 5].map((step, index) => (
+              <div key={step} className="step-card bg-white cursor-pointer rounded-2xl p-10 text-center shadow-lg transition-all duration-300 w-full lg:w-1/2 max-w-sm lg:max-w-none hover:-translate-y-2 hover:shadow-xl relative overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay={(index + 3) * 100}>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-pink"></div>
+                <div className="step-icon w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-pink-light to-gold-light rounded-full flex items-center justify-center relative transition-all duration-300 hover:scale-110 hover:rotate-6 flex-shrink-0">
+                  <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <div className="step-number absolute -top-2 -right-2 w-10 h-10 bg-gold text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg shadow-gold/40">
+                    {step}
+                  </div>
+                </div>
+                <div className="step-content flex-1 flex flex-col">
+                  <h3 className="text-xl font-playfair font-semibold mb-4 text-dark">
+                    {[
+                      "Prototyping & Fitting",
+                      "Production & Quality Control"
+                    ][index]}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed flex-1">
+                    {[
                       "We create initial prototypes and conduct fitting sessions to refine the design, making adjustments to ensure the final product exceeds expectations.",
                       "Our artisans bring your design to life with meticulous attention to detail. Each piece undergoes rigorous quality checks before delivery."
                     ][index]}
@@ -319,7 +348,8 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Products Section */}
       <section className="products py-20 bg-white">
@@ -384,9 +414,9 @@ const Home = () => {
               "Consulting",
               "Logistics"
             ].map((service, index) => (
-              <div key={index} className="service-card bg-white rounded-2xl p-10 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden" data-aos="fade-up" data-aos-delay={(index % 6) * 100}>
+              <div key={index} className="service-card cursor-pointer bg-white rounded-2xl p-10 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden" data-aos="fade-up" data-aos-delay={(index % 6) * 100}>
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-pink"></div>
-                <div className="service-icon w-20 h-20 mx-auto mb-5 bg-pink-light rounded-full flex items-center justify-center">
+                <div className="service-icon w-20 h-20 mx-auto mb-5 bg-pink-light cursor-pointer rounded-full flex items-center justify-center">
                   <svg className="w-10 h-10 text-gold" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                   </svg>

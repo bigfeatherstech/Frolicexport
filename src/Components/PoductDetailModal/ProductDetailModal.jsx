@@ -137,7 +137,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
                     {isZoomActive && (
                       <div
                         ref={zoomLensRef}
-                        className="absolute border border-white rounded-lg shadow-lg pointer-events-none bg-white bg-opacity-20 backdrop-blur-sm"
+                        className="absolute  rounded-lg pointer-events-none"
                         style={{
                           width: `${LENS_SIZE}px`,
                           height: `${LENS_SIZE}px`,
