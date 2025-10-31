@@ -312,7 +312,7 @@ const Header = () => {
               
               <li>
                 <NavLink
-                  to="/contact"
+                  to="/career"
                   className={({ isActive }) => 
                     `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
                       isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'

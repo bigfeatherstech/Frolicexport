@@ -46,20 +46,20 @@ function App() {
     <div className="min-h-screen">
       <Header />
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/product' element={<Product/>} />
-         <Route path='/about' element={<About/>} />
-       <Route path='/career' element={<Career/>} />
-         <Route path='/contact' element={<Contact/>} />
-           <Route path='/ourteam' element={<Ourteam/>} />
-             <Route path='/brand-showcases' element={<Infrastructure/>} />
-               <Route path='/design-foundation' element={<TradeEvents/>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/career' element={<Career />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/ourteam' element={<Ourteam />} />
+        <Route path='/brand-showcases' element={<Infrastructure />} />
+        <Route path='/design-foundation' element={<TradeEvents />} />
 
-                              <Route path='/design-foundation' element={<TradeEvents/>} />
+     
 
       </Routes>
-      <Footer />
-      <BottomToTop />
+      {/* <Footer />
+      <BottomToTop /> */}
     </div>
   );
 }
