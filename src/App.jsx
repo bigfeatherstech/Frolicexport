@@ -55,7 +55,7 @@ function App() {
         <Route path='/brand-showcases' element={<Infrastructure />} />
         <Route path='/design-foundation' element={<TradeEvents />} />
 
-     
+        <Route path='/design-foundation' element={<TradeEvents />} />
 
       </Routes>
       <Footer />
