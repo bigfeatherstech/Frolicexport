@@ -58,8 +58,8 @@ function App() {
      
 
       </Routes>
-      {/* <Footer />
-      <BottomToTop /> */}
+      <Footer />
+      <BottomToTop />
     </div>
   );
 }

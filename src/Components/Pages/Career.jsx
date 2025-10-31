@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Career() {
   return (
-    <div>Career</div>
+    <div style={{marginTop:"100px"}}>Career</div>
   )
 }
