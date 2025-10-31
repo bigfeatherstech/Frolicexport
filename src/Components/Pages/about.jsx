@@ -154,9 +154,9 @@ const About = () => {
           </div>
         </div>
       </section>
-      <div>
+      {/* <div>
         about
-      </div>
+      </div> */}
 
       {/* ===== ABOUT CONTENT SECTION ===== */}
       <section className="py-24">
