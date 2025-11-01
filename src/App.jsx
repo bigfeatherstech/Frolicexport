@@ -11,6 +11,8 @@ import Career from './Components/Pages/Career';
 import Contact from './Components/Pages/Contact';
 import Infrastructure from './Components/Pages/Infrastructure';
 import TradeEvents from './Components/Pages/TradeEvents';
+import WhatsApp from './Components/WhatsApp/whatsapp';
+import ProductCategory from './Components/DynamicProductCategory/productcategory';
 
 function App() {
   useEffect(() => {
@@ -56,10 +58,15 @@ function App() {
         <Route path='/design-foundation' element={<TradeEvents />} />
 
         <Route path='/design-foundation' element={<TradeEvents />} />
+          {/* Individual category routes for direct navigation */}
+        <Route path='/cord-set' element={<ProductCategory />} />
+        <Route path='/tops-blouses' element={<ProductCategory />} />
+        <Route path='/dresses' element={<ProductCategory />} />
 
       </Routes>
       <Footer />
       <BottomToTop />
+       <WhatsApp />
     </div>
   );
 }

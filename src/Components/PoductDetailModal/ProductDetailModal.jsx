@@ -235,7 +235,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
 
                   {/* Add to Cart Button - Prominent */}
                   <button className="w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white py-3 rounded-full font-semibold text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 hover:from-purple-700 hover:to-blue-600 mb-4">
-                    Add to Cart
+                    Enquire Now
                   </button>
 
                   {/* Key Specifications - Compact */}

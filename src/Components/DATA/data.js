@@ -1,116 +1,136 @@
 import dress from "../../assets/dress.jpg"
+import dress1 from "/src/assets/productsimages/maxidress1.jpg"
+import dress2 from "/src/assets/productsimages/maxidress2.jpg"
+import dress3 from "/src/assets/productsimages/maxidress3.jpg"
+import dress4 from "/src/assets/productsimages/maxidress4.jpg"
 import tops from "../../assets/top.jpg"
+import top1 from "/src/assets/productsimages/top1.jpg"
+import top2 from "/src/assets/productsimages/top2.jpg"
+import top3 from "/src/assets/productsimages/top3.jpg"
+import top4 from "/src/assets/productsimages/top4.jpg"
 import cord from "../../assets/cord-set.jpg"
+import cord1 from "/src/assets/productsimages/yellowcord1.jpg"
+import cord2 from "/src/assets/productsimages/yellowcord2.jpg"
+import cord3 from "/src/assets/productsimages/yellowcord3.jpg"
+import cordset1 from "/src/assets/productsimages/cordset1.jpg"
+import cordset2 from "/src/assets/productsimages/cordset2.jpg"
+import cordset3 from "/src/assets/productsimages/cordset3.jpg"
+import cordset4 from "/src/assets/productsimages/cordset1.jpg"
+import pinkdress1 from "/src/assets/productsimages/pinkdress1.jpg"
+import pinkdress2 from "/src/assets/productsimages/pinkdress2.jpg"
+import pinkdress3 from "/src/assets/productsimages/pinkdress3.jpg"
+import pinkdress4 from "/src/assets/productsimages/pinkdress4.jpg"
 
 
 export const featuredCollections = [
-    {
+     {
         id: 1,
-        title: "Silk Evening Gown",
-        subtitle: "Timeless Elegance for Every Occasion",
-        price: "$189.99",
-        // image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-       image: dress,
-       
-        images: [
-            "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-            "https://themewagon.github.io/kaira/images/product-item-5.jpg",
-            "https://themewagon.github.io/kaira/images/product-item-6.jpg",
-            "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-        ],
-        alt: "Elegant Silk Evening Gown",
-        shortDescription: "A graceful silk gown designed for special evenings. Soft, flowy, and effortlessly elegant.",
-        description: "Crafted from 100% pure silk, this evening gown offers a luxurious feel with a smooth, lightweight drape. The classic silhouette and subtle details make it perfect for formal dinners, weddings, or gala nights. Comfortable, refined, and timeless — elegance made simple.",
+        title: "Premium Cord Set",
+        subtitle: "Comfortable and Stylish",
+        price: "$89.99",
+        image: cord,
+        images: [cord, cord1, cord2, cord3],
+        alt: "Premium Cord Set",
+        shortDescription: "A comfortable and stylish cord set perfect for casual wear.",
+        description: "Made from high-quality fabric, this cord set offers both comfort and style for everyday wear.",
         specifications: {
-            Fabric: "100% Pure Silk",
-            Lining: "Soft Satin Inner Lining",
-            FitType: "Tailored Fit",
-            Length: "Full-Length Gown",
-            Neckline: "Sweetheart Neckline",
-            SleeveType: "Sleeveless",
-            CareInstructions: "Dry Clean Only",
-            Occasion: "Evening Wear / Formal Events / Weddings"
+            Material: "Cotton Blend",
+            Style: "Casual",
+            CareInstructions: "Machine Washable"
         },
-        availability: "In Stock"
+        availability: "In Stock",
+        category: "cord-set"
     },
     {
         id: 2,
-        title: "Leather Tote Bag",
-        subtitle: "Stylish Utility Meets Everyday Comfort",
-        price: "$129.99",
-        // image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-        image: cord,
-        images: [
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-        ],
-        alt: "Designer Leather Tote Bag",
-        shortDescription: "A spacious leather tote designed for everyday elegance and practicality.",
-        description: "Made from premium quality leather, this tote bag combines classic style with modern functionality. Its roomy interior, sturdy handles, and sleek finish make it ideal for work, travel, or casual outings.",
+        title: "Designer Top",
+        subtitle: "Elegant and Versatile",
+        price: "$59.99",
+        image: tops,
+        images: [tops, tops, tops, tops],
+        alt: "Designer Top",
+        shortDescription: "An elegant top that can be dressed up or down.",
+        description: "This versatile top is perfect for both casual outings and formal occasions.",
         specifications: {
-            Material: "Genuine Leather",
-            Lining: "Soft Fabric Interior",
-            Closure: "Magnetic Snap",
-            Handles: "Dual Reinforced Straps",
-            Compartments: "1 Main, 2 Inner Pockets",
-            CareInstructions: "Wipe with a dry cloth",
-            Occasion: "Casual / Work / Travel"
+            Material: "Silk Blend",
+            Style: "Versatile",
+            CareInstructions: "Dry Clean Only"
         },
-        availability: "In Stock"
+        availability: "In Stock",
+        category: "tops-blouses"
     },
     {
         id: 3,
-        title: "Cashmere Blend Scarf",
-        subtitle: "Soft Warmth with Timeless Elegance",
-        price: "$79.99",
-     image: tops,
-        // image: "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80",
-        images: [
-            "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80",
-            "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80",
-            "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80",
-            "https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80"
-        ],
-        alt: "Luxury Cashmere Blend Scarf",
-        shortDescription: "A luxuriously soft scarf that adds instant warmth and sophistication to your look.",
-        description: "Crafted from a fine blend of cashmere and wool, this scarf feels incredibly soft against the skin. Its lightweight design makes it perfect for layering during cool weather while maintaining a refined appearance.",
+        title: "Maxi Dress",
+        subtitle: "Graceful and Sophisticated",
+        price: "$129.99",
+        image: dress,
+        images: [dress1, dress2, dress3, dress4],
+        alt: "Evening Dress",
+        shortDescription: "A graceful evening dress for special occasions.",
+        description: "This sophisticated dress is perfect for formal events and special occasions.",
         specifications: {
-            Material: "Cashmere and Wool Blend",
-            Size: "180 x 70 cm",
-            Texture: "Soft and Lightweight",
-            Pattern: "Solid / Minimal Weave",
-            CareInstructions: "Dry Clean Recommended",
-            Occasion: "Winter / Travel / Casual"
+            Material: "Satin",
+            Style: "Formal",
+            CareInstructions: "Dry Clean Only"
         },
-        availability: "In Stock"
+        availability: "In Stock",
+        category: "dresses"
     },
-    // {
-    //     id: 4,
-    //     title: "Gold Plated Necklace",
-    //     subtitle: "Radiant Shine for Every Occasion",
-    //     price: "$59.99",
-    //     image: "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    //     images: [
-    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-    //     ],
-    //     alt: "Elegant Gold Plated Necklace",
-    //     shortDescription: "An elegant gold-plated necklace designed to elevate your everyday or festive style.",
-    //     description: "Delicately crafted with premium gold plating, this necklace brings a refined shimmer to your look. Its minimalist yet luxurious design makes it perfect for pairing with both modern and traditional outfits.",
-    //     specifications: {
-    //         Material: "Gold Plated Alloy",
-    //         Length: "18 Inches (Adjustable)",
-    //         Closure: "Lobster Clasp",
-    //         Finish: "High Polish",
-    //         CareInstructions: "Keep away from moisture and perfumes",
-    //         Occasion: "Festive / Party / Daily Wear"
-    //     },
-    //     availability: "In Stock"
-    // }
+    {
+        id: 4,
+        title: "Casual Cord Set",
+        subtitle: "Everyday Comfort",
+        price: "$79.99",
+        image: cordset1,
+        images: [cordset1, cordset2, cordset3, cordset4],
+        alt: "Casual Cord Set",
+        shortDescription: "Perfect for everyday casual wear.",
+        description: "Comfortable cord set for daily use.",
+        specifications: {
+            Material: "Cotton",
+            Style: "Casual",
+            CareInstructions: "Machine Washable"
+        },
+        availability: "In Stock",
+        category: "cord-set"
+    },
+    {
+        id: 5,
+        title: "White T-Shirt Blouse",
+        subtitle: "Light and Airy",
+        price: "$49.99",
+        image: top1,
+        images: [top1, top2, top3, top4],
+        alt: "Summer Blouse",
+        shortDescription: "Light and airy blouse for summer.",
+        description: "Perfect summer blouse for warm weather.",
+        specifications: {
+            Material: "Linen",
+            Style: "Summer",
+            CareInstructions: "Hand Wash"
+        },
+        availability: "In Stock",
+        category: "tops-blouses"
+    },
+    {
+        id: 6,
+        title: "Pink Long Dress",
+        subtitle: "Party Ready",
+        price: "$99.99",
+        image: pinkdress1,
+        images: [pinkdress1, pinkdress2, pinkdress3, pinkdress4],
+        alt: "Cocktail Dress",
+        shortDescription: "Perfect for parties and events.",
+        description: "Elegant cocktail dress for special occasions.",
+        specifications: {
+            Material: "Chiffon",
+            Style: "Cocktail",
+            CareInstructions: "Dry Clean Only"
+        },
+        availability: "In Stock",
+        category: "dresses"
+    }
 ];
 
 export const testimonials = [
@@ -119,7 +139,8 @@ export const testimonials = [
         name: "Sarah Johnson",
         position: "Fashion Designer",
         text: "Working with Frolic Exports transformed my design vision into reality. Their attention to detail and quality craftsmanship is exceptional.",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+
     },
     {
         id: 2,

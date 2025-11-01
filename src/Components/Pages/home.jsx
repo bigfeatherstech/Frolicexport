@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { featuredCollections, testimonials, partners } from '../DATA/data';
 import ProductDetailModal from '../PoductDetailModal/ProductDetailModal';
 
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -23,6 +24,7 @@ import image3 from "../../assets/image3.png"
 import image9 from "../../assets/image9.jpg"
 import banner1 from "../../assets/banner1.png"
 import banner2 from "../../assets/banner2.png"
+import { useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
@@ -30,12 +32,13 @@ const Home = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Loading simulation
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 100);
 
     // Initialize AOS
     AOS.init({
@@ -54,16 +57,22 @@ const Home = () => {
       clearTimeout(timer);
     };
   }, []);
-
+  
   // Duplicate testimonials and partners for loop mode
   const duplicatedTestimonials = [...testimonials, ...testimonials];
   const duplicatedPartners = [...partners, ...partners];
 
-  const handleQuickView = (product) => {
-    setSelectedProduct(product);
-    setActiveImageIndex(0);
-    setIsModalOpen(true);
-  };
+  
+  // In your Home component, update the handleQuickView function
+const handleQuickView = (product) => {
+  // Navigate to specific category page based on product category
+  if (product.category) {
+    navigate(`/${product.category}`);
+  } else {
+    // Fallback to general product page
+    navigate('/product');
+  }
+};
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -93,78 +102,12 @@ const Home = () => {
         onImageChange={handleImageChange}
       />
 
-      {/* Hero Section */}
-      {/* <section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
-        <div className="hero-swiper w-full h-full absolute inset-0 z-0">
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={0}
-            slidesPerView={1}
-            loop={true}
-            pagination={{ 
-              clickable: true,
-              el: '.hero-pagination'
-            }}
-            autoplay={{ 
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            className="h-full w-full"
-          >
-            <SwiperSlide>
-              <div 
-                className="hero-swiper-slide w-full h-full bg-cover bg-center"
-                style={{
-                  // backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/953262/pexels-photo-953262.jpeg)'
-             backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${image3})`
-
-
-                }}
-              ></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="hero-swiper-slide w-full h-full bg-cover bg-center"
-                style={{
-                  // backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg)'
-                   backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${image2})`
-                }}
-              ></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="hero-swiper-slide w-full h-full bg-cover bg-center"
-                style={{
-                  // backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg)'
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${image1})`
-                }}
-              ></div>
-            </SwiperSlide>
-          </Swiper>
-          <div className="hero-pagination swiper-pagination !bottom-4"></div>
-        </div>
-
-        <div className="container mx-auto px-5 relative z-10">
-          <div className="hero-content max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-            <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-5 text-dark leading-tight">
-              Elegance in Every Thread
-            </h1>
-            <p className="text-lg mb-8 text-gray-600">
-              Discover the Craft of Frolic Exports. Where tradition meets contemporary design in fashion that inspires confidence and grace.
-            </p>
-            <div className="hero-btns flex flex-col sm:flex-row gap-4">
-              <a href="/products" className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40">
-                Explore Collections
-              </a>
-              <a href="#contact" className="btn btn-outline bg-transparent border-2 border-gold text-gold py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white">
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-   <section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
+   {/* Hero Section */}
+<section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
+  {/* 
+    Hero Swiper Container 
+    Contains the image slider with responsive image handling
+  */}
   <div className="hero-swiper w-full h-full absolute inset-0 z-0">
     <Swiper
       modules={[Autoplay, Pagination, Navigation]}
@@ -184,74 +127,153 @@ const Home = () => {
       autoplay={{ delay: 5000, disableOnInteraction: false }}
       className="h-full w-full"
     >
+      {/* 
+        SLIDE 1: Desktop and Mobile Optimized Images
+        Uses different images for desktop and mobile to ensure perfect fit
+      */}
       <SwiperSlide>
-        <div
-          className="hero-swiper-slide w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner2})`
-          }}
-        />
+        <div className="relative w-full h-full">
+          {/* 
+            Desktop Image (Large, detailed, landscape oriented)
+            Hidden on mobile devices
+          */}
+          <div
+            className="hidden md:block w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner2})`
+            }}
+          />
+          
+          {/* 
+            Mobile Optimized Image (Portrait oriented, faster loading)
+            Only shown on mobile devices - better aspect ratio for phones
+          */}
+          <div
+            className="md:hidden w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(src/assets/productsimages/cordset1.jpg)`
+            }}
+          />
+        </div>
       </SwiperSlide>
 
+      {/* 
+        SLIDE 2: Second slide with responsive image handling
+      */}
       <SwiperSlide>
-        <div
-          className="hero-swiper-slide w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner1})`
-          }}
-        />
+        <div className="relative w-full h-full">
+          {/* Desktop version of banner1 */}
+          <div
+            className="hidden md:block w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner1})`
+            }}
+          />
+          
+          {/* Mobile optimized version of banner1 */}
+          <div
+            className="md:hidden w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(src/assets/productsimages/maxidress3.jpg)`
+            }}
+          />
+        </div>
       </SwiperSlide>
 
+      {/* 
+        SLIDE 3: Third slide with responsive image handling
+      */}
       <SwiperSlide>
-        <div
-          className="hero-swiper-slide w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${image1})`
-          }}
-        />
+        <div className="relative w-full h-full">
+          {/* Desktop version of image1 */}
+          <div
+            className="hidden md:block w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${image1})`
+            }}
+          />
+          
+          {/* Mobile optimized version of image1 */}
+          <div
+            className="md:hidden w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(src/assets/productsimages/yellowmaxi1.jpg)`
+            }}
+          />
+        </div>
       </SwiperSlide>
     </Swiper>
 
-    {/* Navigation Buttons - Hidden on mobile */}
-    <button className="hero-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex">
+    {/* 
+      NAVIGATION BUTTONS 
+      Hidden on mobile for better touch experience and more screen space
+    */}
+    <button 
+      className="hero-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex"
+      aria-label="Previous slide"
+    >
       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
       </svg>
     </button>
     
-    <button className="hero-button-next absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex">
+    <button 
+      className="hero-button-next absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex"
+      aria-label="Next slide"
+    >
       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
       </svg>
     </button>
 
-    {/* Optional global overlay */}
+    {/* 
+      OVERLAY 
+      Adds consistent dark overlay for better text readability across all images
+    */}
     <div className="absolute inset-0 bg-black/25 z-5 pointer-events-none" />
     
-    {/* Custom Pagination Dots */}
+    {/* 
+      CUSTOM PAGINATION DOTS 
+      Positioned at bottom with custom styling
+    */}
     <div className="hero-pagination swiper-pagination !bottom-4 flex justify-center gap-2" />
   </div>
 
+  {/* 
+    HERO CONTENT SECTION
+    Contains the main headline, description, and call-to-action buttons
+    Positioned with z-10 to appear above the background images
+  */}
   <div className="container mx-auto px-5 relative z-10">
     <div className="hero-content max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-      <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-5 text-white leading-tight drop-shadow-lg">
+      
+      {/* Main Headline */}
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold mb-5 text-white leading-tight drop-shadow-lg">
         Elegance in Every Thread
       </h1>
 
-      <p className="text-lg mb-8 text-white/90 drop-shadow">
+      {/* Supporting Description */}
+      <p className="text-lg md:text-xl mb-8 text-white/90 drop-shadow max-w-lg">
         Discover the Craft of Frolic Exports. Where tradition meets contemporary design in fashion that inspires confidence and grace.
       </p>
 
+      {/* 
+        CALL-TO-ACTION BUTTONS
+        Responsive layout: stacked on mobile, horizontal on larger screens
+      */}
       <div className="hero-btns flex flex-col sm:flex-row gap-3 sm:gap-4">
+        {/* Primary CTA Button */}
         <a
           href="/products"
-          className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-6 sm:py-3 sm:px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40 text-sm sm:text-base"
+          className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-6 sm:py-3 sm:px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40 text-sm sm:text-base text-center"
         >
           Explore Collections
         </a>
+        
+        {/* Secondary CTA Button */}
         <a
           href="#contact"
-          className="btn btn-outline bg-transparent border-2 border-gold text-gold py-3 px-6 sm:py-3 sm:px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white text-sm sm:text-base"
+          className="btn btn-outline bg-transparent border-2 border-gold text-gold py-3 px-6 sm:py-3 sm:px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white text-sm sm:text-base text-center"
         >
           Get in Touch
         </a>
@@ -259,6 +281,10 @@ const Home = () => {
     </div>
   </div>
 
+  {/* 
+    CUSTOM STYLES
+    Enhanced pagination dots and mobile optimizations
+  */}
   <style jsx>{`
     /* Custom pagination dots styling */
     .hero-bullet {
@@ -277,11 +303,59 @@ const Home = () => {
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
     }
     
-    /* Responsive button adjustments */
-    @media (max-width: 640px) {
+    /* Enhanced mobile responsiveness */
+    @media (max-width: 768px) {
+      .hero {
+        height: 60vh; /* Slightly shorter on mobile for better proportions */
+      }
+      
+      .hero-content {
+        text-align: center; /* Center align on mobile */
+        padding: 0 1rem; /* Add side padding */
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem; /* Larger text on mobile for better readability */
+        line-height: 1.2;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem; /* Slightly larger text on mobile */
+        margin-bottom: 2rem;
+      }
+      
       .hero-btns .btn {
-        padding: 12px 24px;
-        font-size: 14px;
+        padding: 14px 28px; /* Larger touch targets on mobile */
+        font-size: 16px;
+        width: 100%; /* Full width buttons on mobile */
+        max-width: 280px; /* But not too wide */
+        margin: 0 auto; /* Center buttons */
+      }
+      
+      .hero-btns {
+        gap: 12px; /* More space between stacked buttons */
+      }
+    }
+    
+    /* Extra small mobile devices */
+    @media (max-width: 480px) {
+      .hero {
+        height: 70vh; /* Taller on very small screens */
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Tablet optimizations */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-content h1 {
+        font-size: 3.5rem;
       }
     }
   `}</style>
@@ -310,7 +384,6 @@ const Home = () => {
             <div className="about-image flex-1 rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left" data-aos-delay="200">
               <img
               src={image9} 
-                // src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
                 alt="Frolic Exports Craftsmanship"
                 className="w-full h-auto transition-transform duration-300 hover:scale-105"
               />
@@ -412,7 +485,7 @@ const Home = () => {
           </div>
           
           <div className="products-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredCollections.map((product, index) => (
+            {featuredCollections.slice(0,3).map((product, index) => (
               <div 
                 key={product.id} 
                 className="product-card bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative group"
@@ -423,7 +496,7 @@ const Home = () => {
                   <img 
                     src={product.image} 
                     alt={product.alt}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                   {/* Quick View Button - Appears on Hover */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -435,7 +508,7 @@ const Home = () => {
                     </button>
                   </div>
                 </div>
-                <div className="product-info p-5">
+                <div className="product-info p-5 text-center">
                   <h3 className="text-lg font-semibold mb-2 text-dark">{product.title}</h3>
                   <p className="text-gold font-medium">{product.price}</p>
                 </div>
@@ -488,77 +561,112 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="testimonials py-20 bg-gradient-to-br from-pink-light to-gold-light relative overflow-hidden">
-        <div className="absolute inset-0 bg-white bg-opacity-10" style={{
-          backgroundImage: 'url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 100\" preserveAspectRatio=\"none\"><path d=\"M0,0 V100 Q500,50 1000,100 V0 Z\" fill=\"white\" opacity=\"0.1\"/></svg>")',
-          backgroundSize: 'cover'
-        }}></div>
-        
-        <div className="container mx-auto px-5 relative z-10">
-          <div className="section-header text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4 text-dark">What Our Clients Say</h2>
-            <p className="max-w-2xl mx-auto text-gray-600">Hear from designers and brands who have transformed their vision with us</p>
-          </div>
-          
-          <div className="testimonials-slider-container w-full h-full py-8 pb-16 relative z-10">
-            <Swiper
-              modules={[Autoplay, Pagination, Navigation]}
-              spaceBetween={30}
-              slidesPerView={1}
-              loop={duplicatedTestimonials.length > 3} // Only enable loop if enough slides
-              pagination={{ 
-                clickable: true,
-                el: '.testimonials-pagination'
-              }}
-              navigation={{
-                nextEl: '.testimonials-navigation .swiper-button-next',
-                prevEl: '.testimonials-navigation .swiper-button-prev',
-              }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              breakpoints={{
-                640: { slidesPerView: 1, spaceBetween: 20 },
-                768: { slidesPerView: 2, spaceBetween: 30 },
-                1024: { slidesPerView: 3, spaceBetween: 30 },
-              }}
-              className="testimonials-swiper"
-            >
-              {duplicatedTestimonials.map((testimonial, index) => (
-                <SwiperSlide key={`${testimonial.id}-${index}`}>
-                  <div className="testimonial-card bg-ivory rounded-2xl shadow-lg p-8 max-w-sm mx-auto transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-pink"></div>
-                    <div className="quote-icon text-4xl text-gold-light mb-4">❝</div>
-                    <p className="testimonial-text text-dark leading-relaxed mb-6 italic">
-                      {testimonial.text}
-                    </p>
-                    <div className="client-info flex items-center">
-                      <div className="client-avatar w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-gold-light">
-                        <img 
-                          src={testimonial.avatar} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="client-details">
-                        <h4 className="text-lg font-semibold text-dark mb-1">{testimonial.name}</h4>
-                        <p className="text-gold font-medium text-sm">{testimonial.position}</p>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="testimonials-pagination swiper-pagination !bottom-0 mt-8"></div>
-            <div className="testimonials-navigation">
-              <div className="swiper-button-next !text-gold !bg-ivory !w-12 !h-12 rounded-full shadow-lg hover:!bg-gold hover:!text-ivory transition-all duration-300 after:!text-xl"></div>
-              <div className="swiper-button-prev !text-gold !bg-ivory !w-12 !h-12 rounded-full shadow-lg hover:!bg-gold hover:!text-ivory transition-all duration-300 after:!text-xl"></div>
+  {/* Testimonials Section */}
+<section className="testimonials py-20 bg-gradient-to-br from-pink-light to-gold-light relative overflow-hidden">
+  <div className="absolute inset-0 bg-white bg-opacity-10" style={{
+    backgroundImage: 'url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 100\" preserveAspectRatio=\"none\"><path d=\"M0,0 V100 Q500,50 1000,100 V0 Z\" fill=\"white\" opacity=\"0.1\"/></svg>")',
+    backgroundSize: 'cover'
+  }}></div>
+  
+  <div className="container mx-auto px-5 relative z-10">
+    <div className="section-header text-center mb-16" data-aos="fade-up">
+      <h2 className="text-3xl md:text-4xl font-playfair font-semibold mb-4 text-dark">What Our Clients Say</h2>
+      <p className="max-w-2xl mx-auto text-gray-600">Hear from designers and brands who have transformed their vision with us</p>
+    </div>
+    
+    <div className="testimonials-slider-container w-full h-full py-8 pb-16 relative z-10">
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        spaceBetween={30}
+        slidesPerView={1}
+        loop={duplicatedTestimonials.length > 3} // Only enable loop if enough slides
+        pagination={{ 
+          clickable: true,
+          el: '.testimonials-pagination'
+        }}
+        navigation={{
+          nextEl: '.testimonials-navigation .swiper-button-next',
+          prevEl: '.testimonials-navigation .swiper-button-prev',
+        }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        breakpoints={{
+          640: { slidesPerView: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 30 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+        }}
+        className="testimonials-swiper"
+      >
+        {duplicatedTestimonials.map((testimonial, index) => (
+          <SwiperSlide key={`${testimonial.id}-${index}`}>
+            <div className="testimonial-card bg-ivory rounded-2xl shadow-lg p-8 max-w-sm mx-auto transition-all cursor-pointer duration-300 hover:- hover:shadow-xl relative overflow-hidden">
+              {/* <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-pink"></div> */}
+              <div className="quote-icon text-4xl text-gold-light mb-4"></div>
+              <p className="testimonial-text text-dark leading-relaxed mb-6 italic">
+                {testimonial.text}
+              </p>
+              <div className="client-info flex items-center">
+                <div className="client-avatar w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-gold-light">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="client-details">
+                  <h4 className="text-lg font-semibold text-dark mb-1">{testimonial.name}</h4>
+                  <p className="text-gold font-medium text-sm">{testimonial.position}</p>
+                </div>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      
+      {/* Pagination Dots */}
+      <div className="testimonials-pagination swiper-pagination !bottom-0 mt-8"></div>
+      
+      {/* Navigation Buttons */}
+      <div className="testimonials-navigation flex items-center justify-center gap-4 mt-8">
+        <div className="swiper-button-prev !static !relative !transform-none !mt-0 !w-12 !h-12 !bg-gradient-to-br from-gold to-gold-light rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 after:!text-white after:!text-lg after:!font-bold flex items-center justify-center">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+          </svg>
         </div>
-      </section>
+        
+        <div className="swiper-button-next !static !relative !transform-none !mt-0 !w-12 !h-12 !bg-gradient-to-br from-gold to-gold-light rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 after:!text-white after:!text-lg after:!font-bold flex items-center justify-center">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Custom CSS for Swiper Navigation */}
+  {/* <style jsx>{`
+    .testimonials-navigation .swiper-button-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: scale(1) !important;
+    }
+    
+    .testimonials-pagination .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: rgba(212, 175, 55, 0.3);
+      opacity: 1;
+      margin: 0 6px;
+    }
+    
+    .testimonials-pagination .swiper-pagination-bullet-active {
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      transform: scale(1.2);
+    }
+  `}</style> */}
+</section>
 
       {/* Partners Section */}
       <section className="partners py-16 bg-white overflow-hidden">

@@ -107,18 +107,25 @@ const Footer = () => {
                 Established in 1994, Frolic Exports has been at the forefront of fashion manufacturing,
                 blending traditional craftsmanship with modern innovation to create timeless pieces that empower women worldwide.
               </p>
-              <div className="social-links flex gap-4">
+            <div className="social-links flex gap-4">
                 {[
-                  { icon: 'fab fa-facebook-f', label: 'Facebook', color: 'from-[#D4AF37] to-[#E8B4B8]' },
-                  { icon: 'fab fa-instagram', label: 'Instagram', color: 'from-[#E8B4B8] to-[#D4AF37]' },
-                  { icon: 'fab fa-pinterest-p', label: 'Pinterest', color: 'from-[#D4AF37] to-[#E8D9A0]' },
-                  { icon: 'fab fa-twitter', label: 'Twitter', color: 'from-[#E8D9A0] to-[#D4AF37]' },
-                  { icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'from-[#E8B4B8] to-[#E8D9A0]' }
+                  // { icon: 'fab fa-facebook-f', label: 'Facebook', color: 'from-[#D4AF37] to-[#E8B4B8]' },
+                  { icon: 'fab fa-instagram', label: 'Instagram', color: 'from-[#E8B4B8] to-[#D4AF37]',url:'https://www.instagram.com/' },
+                  { icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'from-[#E8B4B8] to-[#E8D9A0]',url:'https://in.linkedin.com/' },
+                  {
+                    icon: 'fas fa-store',
+                    label: 'Google Business',
+                    color: 'from-[#E8B4B8] to-[#E8D9A0]',url:'https://www.google.com/maps/place/Frolic+Exports+Private+Limited/@28.5348926,77.4128891,17z/data=!4m15!1m8!3m7!1s0x390ce4594ea1c535:0x7b3b15f4ec20491a!2sFrolic+Exports+Private+Limited!8m2!3d28.5348926!4d77.4128891!10e1!16s%2Fg%2F1ptz2pv9m!3m5!1s0x390ce4594ea1c535:0x7b3b15f4ec20491a!8m2!3d28.5348926!4d77.4128891!16s%2Fg%2F1ptz2pv9m?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D'
+                  }
+                  // { icon: 'fab fa-pinterest-p', label: 'Pinterest', color: 'from-[#D4AF37] to-[#E8D9A0]' },
+                  // { icon: 'fab fa-twitter', label: 'Twitter', color: 'from-[#E8D9A0] to-[#D4AF37]' },
                 ].map((social, index) => (
                   <a
                     key={social.label}
-                    href="#"
-                    className="group relative w-12 h-12 bg-white bg-opacity-10 rounded-2xl flex items-center justify-center text-white hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#E8B4B8] hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
+                    href={social.url}
+                    target="_blank" // Opens link in a new tab
+                    rel="noopener noreferrer" // Security best practice
+                    className={`group relative w-12 h-12 bg-gradient-to-br ${social.color} rounded-2xl flex items-center justify-center text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl hover:-translate-y-2 backdrop-blur-sm`}
                     data-aos="zoom-in"
                     data-aos-delay={index * 100}
                   >
@@ -132,6 +139,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
+
             </div>
 
             {/* Quick Links */}
@@ -144,9 +152,9 @@ const Footer = () => {
                   { name: 'Home', path: '/' },
                   { name: 'About Us', path: '/about' },
                   { name: 'Products', path: '/products' },
-                  { name: 'Collections', path: '/collections' },
-                  { name: 'Sustainability', path: '/sustainability' },
-                  { name: 'Contact', path: '#contact' }
+                  { name: 'Trade Events', path: '/TradeEvents' },
+                  { name: 'Infrastructure', path: '/Infrastructure' },
+                  { name: 'Contact', path: '/contact' }
                 ].map((link, index) => (
                   <li key={link.name}>
                     <a
