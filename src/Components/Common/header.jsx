@@ -36,14 +36,14 @@ const Header = () => {
 
   // Hover handlers for desktop
   const handleDropdownMouseEnter = (dropdown) => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1260) {
       clearTimeout(dropdownTimeoutRef.current);
       setActiveDropdown(dropdown);
     }
   };
 
   const handleDropdownMouseLeave = () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1260) {
       dropdownTimeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
       }, 300);
@@ -51,13 +51,13 @@ const Header = () => {
   };
 
   const handleDropdownMenuMouseEnter = () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1260) {
       clearTimeout(dropdownTimeoutRef.current);
     }
   };
 
   const handleDropdownMenuMouseLeave = () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1260) {
       dropdownTimeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
       }, 300);
@@ -93,7 +93,7 @@ const Header = () => {
   // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 1260) {
         setMobileMenuActive(false);
         setActiveDropdown(null);
       }
@@ -119,50 +119,52 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full py-5 bg-white bg-opacity-95 backdrop-blur-lg z-50 transition-all duration-300 shadow-sm ${
-          scrolled ? 'py-4 shadow-lg' : ''
+        className={`fixed top-0 left-0 w-full py-4 bg-white bg-opacity-95 backdrop-blur-lg z-50 transition-all duration-300 shadow-sm ${
+          scrolled ? 'py-3 shadow-lg' : ''
         }`}
       >
-        <div className="container-fluid mx-auto px-8 sm:px-12 lg:px-16 xl:px-20 flex justify-between items-center">
-          {/* Left: Logo - Moved more inside with increased padding */}
+        <div className="container-fluid mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex justify-between items-center">
+          {/* Logo */}
           <NavLink 
             to="/" 
-            className="logo text-2xl font-bold text-gold font-playfair ml-4 lg:ml-8 xl:ml-12" 
+            className="logo text-2xl font-bold text-gold font-playfair flex-shrink-0" 
             onClick={closeAll}
           >
             <img
               src="\src\assets\logo.png"
-              className="w-40 h-auto"
+              className="w-32 sm:w-36 md:w-40 h-auto"
               alt="Frolic Exports"
             />
           </NavLink>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Show on screens less than 1260px */}
           <button
             ref={mobileMenuBtnRef}
-            className="mobile-menu-btn md:hidden text-2xl text-dark z-50 p-2 rounded-md hover:bg-gray-100 transition-colors mr-4"
+            className="mobile-menu-btn xl:hidden text-2xl text-dark z-50 p-2 rounded-md hover:bg-gray-100 transition-colors flex-shrink-0"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
             <i className={`fas ${mobileMenuActive ? 'fa-times' : 'fa-bars'}`}></i>
           </button>
 
-          {/* Main Navigation */}
+          {/* Main Navigation - Show on desktop (xl+) and when mobile menu is active */}
           <nav
             ref={navRef}
             className={`main-nav ${
               mobileMenuActive ? 'active' : ''
-            } md:static fixed top-20 right-0 w-80 max-w-[85vw] h-[calc(100vh-80px)] bg-white md:bg-transparent md:w-auto md:h-auto transition-all duration-300 md:translate-x-0 shadow-2xl md:shadow-none border-l border-gray-100 md:border-none ${
-              mobileMenuActive ? 'translate-x-0' : 'translate-x-full'
-            } overflow-y-auto md:overflow-visible`}
+            } xl:static fixed top-16 right-0 w-80 max-w-[90vw] h-[calc(100vh-64px)] bg-white xl:bg-transparent xl:w-auto xl:h-auto transition-all duration-300 xl:translate-x-0 shadow-2xl xl:shadow-none border-l border-gray-100 xl:border-none ${
+              mobileMenuActive ? 'translate-x-0' : 'translate-x-full xl:translate-x-0'
+            } overflow-y-auto xl:overflow-visible ${
+              mobileMenuActive ? 'block' : 'hidden xl:block'
+            }`}
           >
-            <ul className="flex flex-col md:flex-row md:items-center p-6 md:p-0 md:space-x-6 lg:space-x-8">
-              <li>
+            <ul className="flex flex-col xl:flex-row xl:items-center p-4 xl:p-0 space-y-1 xl:space-y-0 xl:space-x-6 2xl:space-x-8">
+              <li className="w-full xl:w-auto">
                 <NavLink
                   to="/"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
@@ -170,12 +172,12 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
+              <li className="w-full xl:w-auto">
                 <NavLink
                   to="/about"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
@@ -183,10 +185,11 @@ const Header = () => {
                   About
                 </NavLink>
               </li>
+              
               {/* Products Dropdown */}
               <li 
                 ref={dropdownRef}
-                className={`dropdown relative ${
+                className={`dropdown relative w-full xl:w-auto ${
                   activeDropdown === 'products' ? 'active' : ''
                 }`}
                 onMouseEnter={() => handleDropdownMouseEnter('products')}
@@ -195,14 +198,14 @@ const Header = () => {
                 <NavLink
                   to="/product"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
+                    `font-medium transition-colors duration-300 flex items-center justify-between xl:justify-start py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
                       isActive || activeDropdown === 'products' 
-                        ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' 
-                        : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                        ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' 
+                        : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={(e) => {
-                    if (window.innerWidth <= 768) {
+                    if (window.innerWidth <= 1260) {
                       e.preventDefault();
                       toggleDropdown('products', e);
                     } else {
@@ -220,18 +223,18 @@ const Header = () => {
                 
                 {/* Dropdown Menu */}
                 <div
-                  className={`dropdown-menu md:absolute md:top-full md:left-0 bg-white md:min-w-56 md:shadow-xl md:rounded-lg md:py-2 transition-all duration-300 border border-gray-200 ${
+                  className={`dropdown-menu xl:absolute xl:top-full xl:left-0 bg-white xl:min-w-48 2xl:min-w-56 xl:shadow-xl xl:rounded-lg xl:py-2 transition-all duration-300 border border-gray-200 ${
                     activeDropdown === 'products'
-                      ? 'max-h-96 opacity-100 visible translate-y-0 md:translate-y-0'
-                      : 'max-h-0 opacity-0 invisible md:translate-y-2 overflow-hidden'
-                  } md:overflow-visible pl-4 md:pl-0 mt-1 md:mt-0 md:bg-white`}
+                      ? 'max-h-96 opacity-100 visible translate-y-0 xl:translate-y-0'
+                      : 'max-h-0 opacity-0 invisible xl:translate-y-2 overflow-hidden'
+                  } xl:overflow-visible pl-6 xl:pl-0 mt-1 xl:mt-0 xl:bg-white w-full xl:w-auto`}
                   onMouseEnter={handleDropdownMenuMouseEnter}
                   onMouseLeave={handleDropdownMenuMouseLeave}
                 >
                   <NavLink
                     to="/cord-set"
                     className={({ isActive }) => 
-                      `block py-3 px-4 md:px-5 transition-all duration-300 hover:pl-6 md:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg md:rounded-none mx-2 md:mx-0 ${
+                      `block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base ${
                         isActive 
                           ? 'bg-gold bg-opacity-10 text-gold font-medium' 
                           : 'text-dark hover:bg-gray-50 hover:text-gold'
@@ -244,7 +247,7 @@ const Header = () => {
                   <NavLink
                     to="/tops-blouses"
                     className={({ isActive }) => 
-                      `block py-3 px-4 md:px-5 transition-all duration-300 hover:pl-6 md:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg md:rounded-none mx-2 md:mx-0 ${
+                      `block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base ${
                         isActive 
                           ? 'bg-gold bg-opacity-10 text-gold font-medium' 
                           : 'text-dark hover:bg-gray-50 hover:text-gold'
@@ -257,7 +260,7 @@ const Header = () => {
                   <NavLink
                     to="/dresses"
                     className={({ isActive }) => 
-                      `block py-3 px-4 md:px-5 transition-all duration-300 hover:pl-6 md:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg md:rounded-none mx-2 md:mx-0 ${
+                      `block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base ${
                         isActive 
                           ? 'bg-gold bg-opacity-10 text-gold font-medium' 
                           : 'text-dark hover:bg-gray-50 hover:text-gold'
@@ -269,12 +272,13 @@ const Header = () => {
                   </NavLink>
                 </div>
               </li>
-              <li>
+              
+              <li className="w-full xl:w-auto">
                 <NavLink
                   to="/ourteam"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
@@ -283,12 +287,12 @@ const Header = () => {
                 </NavLink>
               </li>
 
-              <li>
+              <li className="w-full xl:w-auto">
                 <NavLink
                   to="/brand-showcases"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
@@ -296,12 +300,13 @@ const Header = () => {
                   Infrastructure
                 </NavLink>
               </li>
-              <li>
+              
+              <li className="w-full xl:w-auto">
                 <NavLink
                   to="/design-foundation"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
@@ -310,25 +315,26 @@ const Header = () => {
                 </NavLink>
               </li>
               
-              <li>
+              <li className="w-full xl:w-auto">
                 <NavLink
                   to="/career"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
                 >
-                  Carrer
+                  Career
                 </NavLink>
               </li>
-              <li>
+              
+              <li className="w-full xl:w-auto">
                 <NavLink
-                  to="/contact"
+                  to="/contacts"
                   className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 md:py-2 px-4 md:px-0 rounded-lg md:rounded-none ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 md:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 md:hover:bg-transparent'
+                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
+                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
                     }`
                   }
                   onClick={closeAll}
@@ -339,12 +345,9 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Right Section: Glamstra Button - Moved more inside with increased padding */}
-          <div className="hidden md:flex items-center space-x-4 mr-4 lg:mr-8 xl:mr-12">
-            {/* <button className="bg-[#d4af37] text-white font-semibold px-6 py-3 rounded-md shadow-md hover:bg-[#c5a028] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-opacity-50">
-              Glamstra
-            </button> */}
-            <button className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40">
+          {/* Right Section: Glamstra Button - Hide on screens less than 1260px */}
+          <div className="hidden xl:flex items-center space-x-4 flex-shrink-0">
+            <button className="btn bg-gradient-to-br from-gold to-gold-light text-white py-2 px-4 2xl:py-3 2xl:px-6 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40 text-sm 2xl:text-base">
               Glamstra
             </button>
           </div>
@@ -354,7 +357,7 @@ const Header = () => {
       {/* Overlay for mobile menu */}
       {mobileMenuActive && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 xl:hidden"
           onClick={closeAll}
         ></div>
       )}
