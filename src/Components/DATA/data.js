@@ -86,31 +86,31 @@ export const featuredCollections = [
         },
         availability: "In Stock"
     },
-    {
-        id: 4,
-        title: "Gold Plated Necklace",
-        subtitle: "Radiant Shine for Every Occasion",
-        price: "$59.99",
-        image: "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-        images: [
-            "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-            "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-        ],
-        alt: "Elegant Gold Plated Necklace",
-        shortDescription: "An elegant gold-plated necklace designed to elevate your everyday or festive style.",
-        description: "Delicately crafted with premium gold plating, this necklace brings a refined shimmer to your look. Its minimalist yet luxurious design makes it perfect for pairing with both modern and traditional outfits.",
-        specifications: {
-            Material: "Gold Plated Alloy",
-            Length: "18 Inches (Adjustable)",
-            Closure: "Lobster Clasp",
-            Finish: "High Polish",
-            CareInstructions: "Keep away from moisture and perfumes",
-            Occasion: "Festive / Party / Daily Wear"
-        },
-        availability: "In Stock"
-    }
+    // {
+    //     id: 4,
+    //     title: "Gold Plated Necklace",
+    //     subtitle: "Radiant Shine for Every Occasion",
+    //     price: "$59.99",
+    //     image: "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    //     images: [
+    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    //         "https://images.unsplash.com/photo-1582142306909-195724d1a6ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    //     ],
+    //     alt: "Elegant Gold Plated Necklace",
+    //     shortDescription: "An elegant gold-plated necklace designed to elevate your everyday or festive style.",
+    //     description: "Delicately crafted with premium gold plating, this necklace brings a refined shimmer to your look. Its minimalist yet luxurious design makes it perfect for pairing with both modern and traditional outfits.",
+    //     specifications: {
+    //         Material: "Gold Plated Alloy",
+    //         Length: "18 Inches (Adjustable)",
+    //         Closure: "Lobster Clasp",
+    //         Finish: "High Polish",
+    //         CareInstructions: "Keep away from moisture and perfumes",
+    //         Occasion: "Festive / Party / Daily Wear"
+    //     },
+    //     availability: "In Stock"
+    // }
 ];
 
 export const testimonials = [

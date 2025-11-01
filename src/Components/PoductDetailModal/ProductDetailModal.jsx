@@ -6,6 +6,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
   const imageRef = useRef(null);
   const zoomLensRef = useRef(null);
   const zoomPreviewRef = useRef(null);
+  const modalRef = useRef(null);
 
   // Configuration
   const ZOOM_LEVEL = 3;
@@ -15,14 +16,25 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Add click outside listener
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.body.style.overflow = 'auto';
+      document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.body.style.overflow = 'auto';
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
+
+  // Handle click outside to close modal
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      onClose();
+    }
+  };
 
   const handleMouseMove = (e) => {
     if (!imageRef.current || !isZoomActive) return;
@@ -55,7 +67,10 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
   };
 
   const handleMouseEnter = () => {
-    setIsZoomActive(true);
+    // Only activate zoom on desktop (non-touch devices)
+    if (!('ontouchstart' in window)) {
+      setIsZoomActive(true);
+    }
   };
 
   const handleMouseLeave = () => {
@@ -74,11 +89,16 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
   if (!isOpen || !product) return null;
 
   const images = getProductImages(product);
+  const isMobile = 'ontouchstart' in window;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300"
+      onClick={onClose} // Close when clicking outside
+    >
       <div 
-        className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[85vh] transform transition-all duration-300 scale-100 overflow-scroller"
+        ref={modalRef}
+        className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[85vh] transform transition-all duration-300 scale-100 overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative">
@@ -93,7 +113,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
           </button>
 
           {/* Compressed Layout - No scrolling needed */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 h-[85vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Left Column - Product Images (60%) */}
             <div className="lg:col-span-7 relative bg-gray-50 p-6">
               <div className="flex space-x-4 h-full">
@@ -103,7 +123,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
                     <button
                       key={index}
                       onClick={() => onImageChange(index)}
-                      className={`relative w-20 h-20 rounded-lg overflow-scroller border-2 transition-all duration-200 ${
+                      className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                         activeImageIndex === index 
                           ? 'border-purple-500 shadow-md scale-105' 
                           : 'border-gray-200 hover:border-gray-300'
@@ -118,14 +138,15 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
                   ))}
                 </div>
 
-                {/* Main Image with Zoom - Flipkart Style */}
+                {/* Main Image with Zoom - Only on desktop */}
                 <div className="flex-1 relative">
                   <div 
                     ref={imageRef}
-                    className="w-full h-full rounded-xl overflow-scroller relative cursor-crosshair bg-white"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    onMouseMove={handleMouseMove}
+                    className="w-full h-full rounded-xl overflow-hidden relative bg-white"
+                    onMouseEnter={isMobile ? undefined : handleMouseEnter}
+                    onMouseLeave={isMobile ? undefined : handleMouseLeave}
+                    onMouseMove={isMobile ? undefined : handleMouseMove}
+                    style={{ cursor: isMobile ? 'default' : 'crosshair' }}
                   >
                     <img
                       src={images[activeImageIndex]}
@@ -133,8 +154,8 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
                       className="w-full h-full object-contain transition-opacity duration-200"
                     />
                     
-                    {/* Zoom Lens - Semi-transparent as requested */}
-                    {isZoomActive && (
+                    {/* Zoom Lens - Only show on desktop */}
+                    {isZoomActive && !isMobile && (
                       <div
                         ref={zoomLensRef}
                         className="absolute  rounded-lg pointer-events-none"
@@ -149,8 +170,8 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
                   </div>
                 </div>
 
-                {/* Zoom Preview - Fixed position on right side like Flipkart */}
-                {isZoomActive && (
+                {/* Zoom Preview - Only show on desktop */}
+                {isZoomActive && !isMobile && (
                   <div
                     ref={zoomPreviewRef}
                     className="absolute left-[calc(100%-35px)] top-1/2 transform -translate-y-1/2 w-[500px] h-[650px] border border-gray-200 rounded-xl shadow-2xl overflow-hidden bg-white z-40 transition-all duration-200"
@@ -171,10 +192,12 @@ const ProductDetailModal = ({ product, isOpen, onClose, activeImageIndex, onImag
                 )}
               </div>
 
-              {/* Zoom Instructions */}
-              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-xs backdrop-blur-sm">
-                🔍 Hover to zoom
-              </div>
+              {/* Zoom Instructions - Only show on desktop */}
+              {!isMobile && (
+                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-xs backdrop-blur-sm">
+                  🔍 Hover to zoom
+                </div>
+              )}
             </div>
 
             {/* Right Column - Product Details (40%) - Compressed Layout */}

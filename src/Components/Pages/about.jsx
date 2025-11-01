@@ -282,9 +282,9 @@ const About = () => {
             {/* Central illustration circle */}
             <div className="relative z-10 flex justify-center items-center mb-16">
               <div className="w-72 h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-[#E8D9A0] to-[#F5E1E2] rounded-full shadow-2xl flex items-center justify-center p-8 border-8 border-white">
-                <div className="text-center">
+                <div className="text-center" style={{textAlign:"-webkit-center"}}>
                   {/* <i className="fas fa-ruler-combined text-7xl lg:text-8xl text-[#D4AF37] mb-6"></i> */}
-                  <img src="\src\assets\title-logo.png" alt="" className='animate-spin' />
+                  <img src="\src\assets\title-logo.png" alt="" className='animate-bounce [animation-duration:2.5s]' />
                   <p className="font-playfair text-xl lg:text-2xl font-semibold text-[#3C3C3C]">Design & Creation</p>
                 </div>
               </div>

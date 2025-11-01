@@ -164,14 +164,23 @@ const Home = () => {
         </div>
       </section> */}
 
-      <section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
+   <section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
   <div className="hero-swiper w-full h-full absolute inset-0 z-0">
     <Swiper
-      modules={[Autoplay, Pagination]}
+      modules={[Autoplay, Pagination, Navigation]}
       spaceBetween={0}
       slidesPerView={1}
       loop={true}
-      pagination={{ clickable: true, el: '.hero-pagination' }}
+      navigation={{
+        nextEl: '.hero-button-next',
+        prevEl: '.hero-button-prev',
+      }}
+      pagination={{ 
+        clickable: true, 
+        el: '.hero-pagination',
+        bulletClass: 'hero-bullet',
+        bulletActiveClass: 'hero-bullet-active'
+      }}
       autoplay={{ delay: 5000, disableOnInteraction: false }}
       className="h-full w-full"
     >
@@ -203,9 +212,24 @@ const Home = () => {
       </SwiperSlide>
     </Swiper>
 
-    {/* Optional global overlay (adds more consistent darkness) */}
+    {/* Navigation Buttons - Hidden on mobile */}
+    <button className="hero-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex">
+      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    
+    <button className="hero-button-next absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex">
+      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    {/* Optional global overlay */}
     <div className="absolute inset-0 bg-black/25 z-5 pointer-events-none" />
-    <div className="hero-pagination swiper-pagination !bottom-4" />
+    
+    {/* Custom Pagination Dots */}
+    <div className="hero-pagination swiper-pagination !bottom-4 flex justify-center gap-2" />
   </div>
 
   <div className="container mx-auto px-5 relative z-10">
@@ -218,22 +242,49 @@ const Home = () => {
         Discover the Craft of Frolic Exports. Where tradition meets contemporary design in fashion that inspires confidence and grace.
       </p>
 
-      <div className="hero-btns flex flex-col sm:flex-row gap-4">
+      <div className="hero-btns flex flex-col sm:flex-row gap-3 sm:gap-4">
         <a
           href="/products"
-          className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40"
+          className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-6 sm:py-3 sm:px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40 text-sm sm:text-base"
         >
           Explore Collections
         </a>
         <a
           href="#contact"
-          className="btn btn-outline bg-transparent border-2 border-gold text-gold py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white"
+          className="btn btn-outline bg-transparent border-2 border-gold text-gold py-3 px-6 sm:py-3 sm:px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white text-sm sm:text-base"
         >
           Get in Touch
         </a>
       </div>
     </div>
   </div>
+
+  <style jsx>{`
+    /* Custom pagination dots styling */
+    .hero-bullet {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      margin: 0 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .hero-bullet-active {
+      background: linear-gradient(135deg, #D4AF37, #FFD700);
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+    
+    /* Responsive button adjustments */
+    @media (max-width: 640px) {
+      .hero-btns .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+    }
+  `}</style>
 </section>
 
 
@@ -270,7 +321,7 @@ const Home = () => {
 
     {/* Fashion Vision Section */}
     <section className="fashion-vision py-20 bg-gradient-to-br from-ivory to-beige relative overflow-hidden">
-      <div className="absolute -top-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-light to-transparent opacity-70 z-0"></div>
+      <div className="absolute -top-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-light to-transparent opacity-70 z-0" style={{left:"-50px"}}></div>
       
       <div className="container mx-auto px-5 relative z-10">
         <div className="section-header text-center mb-16" data-aos="fade-up">
