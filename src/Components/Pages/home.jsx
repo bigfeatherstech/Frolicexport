@@ -21,10 +21,9 @@ import image1 from "../../assets/image1.png"
 import image2 from "../../assets/image2.png"
 import image3 from "../../assets/image3.png"
 import image9 from "../../assets/image9.jpg"
+import banner1 from "../../assets/banner1.png"
+import banner2 from "../../assets/banner2.png"
 
-import dress from "../../assets/dress.jpg"
-import tops from "../../assets/top.jpg"
-import cord from "../../assets/cord-set.jpg"
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -180,7 +179,7 @@ const Home = () => {
         <div
           className="hero-swiper-slide w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${image3})`
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner2})`
           }}
         />
       </SwiperSlide>
@@ -189,7 +188,7 @@ const Home = () => {
         <div
           className="hero-swiper-slide w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${image2})`
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner1})`
           }}
         />
       </SwiperSlide>
