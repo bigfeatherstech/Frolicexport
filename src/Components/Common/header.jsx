@@ -331,7 +331,7 @@ const Header = () => {
               
               <li className="w-full xl:w-auto">
                 <NavLink
-                  to="/contacts"
+                  to="/contact"
                   className={({ isActive }) => 
                     `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
                       isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
