@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
-
+import LOGO from "../../assets/title-logo.png"
+import AB1 from "../../assets/ab1.jpg"
+import AB2 from "../../assets/abt2.jpg"
 const About = () => {
   const [counters, setCounters] = useState({
     factoryArea: 0,
@@ -176,7 +178,7 @@ const About = () => {
               </div>
               <div className="flex-1 rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left" data-aos-delay="200">
                 <img 
-                  src="https://frolicexport.com/assets/img/ab1.jpg" 
+                  src={AB1} 
                   alt="Frolic Exports History" 
                   className="w-full h-auto transition-transform duration-300 hover:scale-105"
                 />
@@ -201,7 +203,7 @@ const About = () => {
               </div>
               <div className="flex-1 rounded-2xl overflow-hidden shadow-xl" data-aos="fade-right" data-aos-delay="200">
                 <img 
-                  src="https://frolicexport.com/assets/img/frolic-about2.jpg" 
+                  src={AB2}
                   alt="Frolic Exports Mission" 
                   className="w-full h-auto transition-transform duration-300 hover:scale-105"
                 />
@@ -279,7 +281,7 @@ const About = () => {
             <div className="relative z-10 flex justify-center items-center mb-16">
               <div className="w-72 h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-[#E8D9A0] to-[#F5E1E2] rounded-full shadow-2xl flex items-center justify-center p-8 border-8 border-white">
                 <div className="text-center" style={{textAlign:"-webkit-center"}}>
-                  <img src="/src/assets/title-logo.png" alt="Frolic Exports Logo" className='animate-bounce [animation-duration:2.5s]' />
+                  <img src={LOGO} alt="Frolic Exports Logo" className='animate-bounce [animation-duration:2.5s]' />
                   <p className="font-playfair text-xl lg:text-2xl font-semibold text-[#3C3C3C]">Design & Creation</p>
                 </div>
               </div>

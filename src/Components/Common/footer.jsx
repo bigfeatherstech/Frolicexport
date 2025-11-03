@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import LOGO from "../../../public/logo.png"
+import LOGO from "../../assets/logo.png"
+
 
 
 const Footer = () => {

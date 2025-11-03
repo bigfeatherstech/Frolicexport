@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import LOGO from "../../../public/logo.png"
-
+import LOGO from "../../assets/logo.png"
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
