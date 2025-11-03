@@ -146,7 +146,7 @@ const ProductCategory = () => {
                 onClick={() => navigateToCategory(cat)}
                 className={`category-btn px-6 py-3 bg-white border-2 rounded-full font-medium cursor-pointer transition-all duration-300 capitalize ${
                   currentCategory === cat
-                    ? 'bg-pink border-pink text-white shadow-lg'
+                    ? 'bg-pink border-pink text-dark shadow-lg'
                     : 'border-pink-light text-gray-700 hover:bg-pink-light hover:border-pink'
                 }`}
               >
