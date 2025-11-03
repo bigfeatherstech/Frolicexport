@@ -183,7 +183,7 @@ const ProductCategory = () => {
                   </div>
                   <div className="product-info p-6 text-center">
                     <h3 className="text-lg font-semibold mb-2 text-dark">{product.title}</h3>
-                    <p className="text-gold font-medium text-lg mb-3">{product.price}</p>
+                    {/* <p className="text-gold font-medium text-lg mb-3">{product.price}</p> */}
                     <div className="product-meta flex justify-between items-center">
                       <span className="product-category bg-pink-light text-dark text-xs px-3 py-1 rounded-full capitalize">
                         {product.category?.replace('-', ' ') || 'Fashion'}

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-
+import image1 from "../../assets/image1.JPG"
 const Ourteam = () => {
   const [hoveredMember, setHoveredMember] = useState(null);
 
@@ -136,35 +136,47 @@ const Ourteam = () => {
 
   return (
     <div className="min-h-screen bg-[#F9F6F0] font-poppins text-[#3C3C3C] pt-16">
-      
+
       {/* ===== PAGE HEADER SECTION ===== */}
       <section className="pt-32 pb-20 text-center relative overflow-hidden">
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] via-[#E8D9A0] to-[#F5E1E2] opacity-15"></div>
-        
+
         {/* Animated gradient effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
-        
+
         {/* SVG pattern background */}
-        <div className="absolute inset-0 opacity-10"
-             style={{
-               backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'><path d='M0,0 V100 Q500,50 1000,100 V0 Z' fill='white' opacity='0.3'/></svg>")`,
-               backgroundSize: 'cover'
-             }}>
+        <div className="absolute inset-0">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-fixed bg-center bg-cover"
+            style={{
+              backgroundImage: `url(${image1})`,
+            }}
+          ></div>
+
+          {/* Black overlay with rgba */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            }}
+          ></div>
         </div>
-        
+
+
         {/* Decorative floating elements */}
         <div className="absolute top-10 left-10 w-20 h-20 bg-[#D4AF37] rounded-full blur-xl opacity-20 animate-bounce"></div>
         <div className="absolute bottom-10 right-10 w-16 h-16 bg-[#E8B4B8] rounded-full blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-[#E8D9A0] rounded-full blur-lg opacity-30 animate-ping"></div>
 
         {/* Main header content */}
-        <div className="container mx-auto px-5 relative z-10">
-          <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 text-[#3C3C3C] drop-shadow-lg" data-aos="fade-up">Our Team</h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 font-medium" data-aos="fade-up" data-aos-delay="200">
+        <div className="container mx-auto px-5 relative z-10 text-white">
+          <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 drop-shadow-lg" data-aos="fade-up">Our Team</h1>
+          <p className="max-w-2xl mx-auto text-lg md:text-xl font-medium" data-aos="fade-up" data-aos-delay="200">
             Meet the passionate team behind Frolic Exports - where creativity meets craftsmanship
           </p>
-          
+
           {/* Decorative dots */}
           <div className="flex justify-center items-center space-x-4 mt-8" data-aos="fade-up" data-aos-delay="400">
             <div className="w-3 h-3 bg-[#D4AF37] rounded-full"></div>
@@ -174,46 +186,18 @@ const Ourteam = () => {
         </div>
       </section>
 
-    {/* ===== TEAM STATS SECTION ===== */}
-      {/* <section className="py-20 bg-gradient-to-br relative overflow-hidden">
-        <div className="container mx-auto px-5">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <StatCard 
-              icon="fas fa-users"
-              value="100+"
-              label="Team Members"
-              delay="100"
-              color="from-[#D4AF37] to-[#E8B4B8]"
-            />
-            <StatCard 
-              icon="fas fa-globe-americas"
-              value="15+"
-              label="Countries"
-              delay="200"
-              color="from-[#E8B4B8] to-[#D4AF37]"
-            />
-            <StatCard 
-              icon="fas fa-award"
-              value="50+"
-              label="Awards Won"
-              delay="300"
-              color="from-[#D4AF37] to-[#E8D9A0]"
-            />
-            <StatCard 
-              icon="fas fa-heart"
-              value="30+"
-              label="Years Experience"
-              delay="400"
-              color="from-[#E8D9A0] to-[#E8B4B8]"
-            />
-          </div>
+      <section className="py-24 bg-[#F9F6F0]">
+        <div className="container mx-auto px-5 text-center max-w-3xl">
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
+            At <span className="text-[#D4AF37] font-semibold">Frolic Exports</span>, our team is the heart of everything we create.
+            Each member brings unique expertise, creativity, and dedication to transform ideas into world-class designs.
+            Together, we strive to set new benchmarks in quality, innovation, and global craftsmanship.
+          </p>
         </div>
-        
-        
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37] rounded-full opacity-5 -translate-x-30 -translate-y-10"></div>
-        <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#E8B4B8] rounded-full opacity-5 translate-x-20 translate-y-20"></div>
-      </section> */}
-       {/* ===== TEAM SECTION ===== */}
+      </section>
+
+
+      {/* ===== TEAM SECTION ===== */}
       <section className="py-24">
         <div className="container mx-auto px-5">
           <div className="text-center mb-16" data-aos="fade-up">
@@ -222,28 +206,28 @@ const Ourteam = () => {
               The passionate individuals behind Frolic Exports
             </p>
           </div>
-          
+
           {/* Team grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer ">
-            <TeamMember 
+            <TeamMember
               image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               name="Isabella Rodriguez"
               role="Founder & Creative Director"
               delay="100"
             />
-            <TeamMember 
+            <TeamMember
               image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               name="Michael Chen"
               role="Head of Design"
               delay="200"
             />
-            <TeamMember 
+            <TeamMember
               image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               name="Sophia Williams"
               role="Production Manager"
               delay="300"
             />
-            <TeamMember 
+            <TeamMember
               image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               name="David Johnson"
               role="Marketing Director"
@@ -256,12 +240,12 @@ const Ourteam = () => {
       {/* ===== CULTURE SECTION ===== */}
       <section className="py-24 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] relative overflow-hidden">
         <div className="absolute inset-0 bg-white opacity-10"
-             style={{
-               backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'><path d='M0,0 V100 Q500,50 1000,100 V0 Z' fill='white' opacity='0.1'/></svg>")`,
-               backgroundSize: 'cover'
-             }}>
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'><path d='M0,0 V100 Q500,50 1000,100 V0 Z' fill='white' opacity='0.1'/></svg>")`,
+            backgroundSize: 'cover'
+          }}>
         </div>
-        
+
         <div className="container mx-auto px-5 relative z-10">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-4 text-[#3C3C3C]">Our Culture</h2>
@@ -269,21 +253,21 @@ const Ourteam = () => {
               The values and environment that make Frolic Exports special
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <CultureCard 
+            <CultureCard
               icon="fas fa-handshake"
               title="Collaboration"
               description="We believe in the power of teamwork and cross-functional collaboration to create exceptional results."
               delay="100"
             />
-            <CultureCard 
+            <CultureCard
               icon="fas fa-lightbulb"
               title="Innovation"
               description="Continuous learning and creative thinking drive our designs and business strategies forward."
               delay="200"
             />
-            <CultureCard 
+            <CultureCard
               icon="fas fa-heart"
               title="Passion"
               description="Every team member brings genuine passion and dedication to their craft and our shared vision."
@@ -319,24 +303,24 @@ const Ourteam = () => {
 // ===== STAT CARD COMPONENT =====
 const StatCard = ({ icon, value, label, delay, color }) => {
   return (
-    <div 
-      className="text-center group cursor-pointer" 
-      data-aos="zoom-in" 
+    <div
+      className="text-center group cursor-pointer"
+      data-aos="zoom-in"
       data-aos-delay={delay}
     >
       <div className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl border-2 border-transparent hover:border-[#F5F1E8]">
         <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
           <i className={icon}></i>
         </div>
-        
+
         <div className="mb-2">
           <span className="font-playfair text-3xl md:text-4xl font-bold text-[#3C3C3C]">
             {value}
           </span>
         </div>
-        
+
         <p className="text-gray-600 font-medium">{label}</p>
-        
+
         <div className={`w-0 h-1 bg-gradient-to-r ${color} mx-auto mt-4 group-hover:w-12 transition-all duration-500`}></div>
       </div>
     </div>
@@ -350,9 +334,9 @@ const TeamMember = ({ image, name, role, delay }) => {
   return (
     <div className="text-center" data-aos="fade-up" data-aos-delay={delay}>
       <div className="w-48 h-48 mx-auto mb-5 rounded-full overflow-hidden shadow-xl">
-        <img 
-          src={image} 
-          alt={name} 
+        <img
+          src={image}
+          alt={name}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
         />
       </div>

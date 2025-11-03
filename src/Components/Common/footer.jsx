@@ -49,14 +49,18 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/10 via-[#E8B4B8]/8 to-[#E8D9A0]/12 animate-pulse"></div>
 
       {/* Enhanced Decorative Elements with Curves */}
-      <div className="absolute top-10 left-0 w-40 h-40 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full opacity-10 -translate-x-20 -translate-y-20 blur-xl"></div>
-      <div className="absolute bottom-20 right-0 w-48 h-48 bg-gradient-to-bl from-[#E8B4B8] to-[#D4AF37] rounded-full opacity-10 translate-x-24 translate-y-24 blur-xl"></div>
-      <div className="absolute top-1/3 left-1/3 w-32 h-32 bg-gradient-to-tr from-[#E8D9A0] to-[#D4AF37] rounded-full opacity-8 blur-lg"></div>
+      <div className="absolute top-10 left-0 w-40 h-40 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full opacity- -translate-x-20 -translate-y-20 blur-xl"></div>
+      <div className="absolute bottom-20 right-0 w-48 h-48 bg-gradient-to-bl from-[#E8B4B8] to-[#D4AF37] rounded-full opacity-20 translate-x-24 translate-y-24 blur-xl"></div>
+    <div
+  className="absolute top-1/3 left-1/3 w-32 h-32 bg-gradient-to-tr from-[#E8D9A0] to-[#D4AF37] rounded-full blur-lg"
+  style={{ opacity: 0.3 }}
+></div>
+
 
       {/* Floating Curved Elements */}
-      <div className="absolute top-1/4 right-1/4 w-24 h-24 border-2 border-[#D4AF37]/20 rounded-full animate-float"></div>
-      <div className="absolute bottom-1/3 left-1/4 w-16 h-16 border-2 border-[#E8B4B8]/20 rounded-full animate-float animation-delay-1000"></div>
-      <div className="absolute top-2/3 right-1/3 w-20 h-20 border-2 border-[#E8D9A0]/20 rounded-full animate-float animation-delay-2000"></div>
+      <div className="absolute top-1/4 right-1/4 w-24 h-24 bg-gradient-to-tr from-[#E8D9A0] to-[#D4AF37] rounded-full blur-lg animate-float" style={{opacity:'8px'}}></div>
+      <div className="absolute bottom-1/3 left-1/4 w-16 h-16 bg-gradient-to-tr from-[#E8D9A0] to-[#D4AF37] rounded-full opacity-8 blur-lg rounded-full animate-float animation-delay-1000"></div>
+      <div className="absolute top-2/3 right-1/3 w-20 h-20 bg-gradient-to-tr from-[#E8D9A0] to-[#D4AF37] rounded-full opacity-8 blur-lg rounded-full animate-float animation-delay-2000"></div>
 
       {/* Curved Gradient Bars */}
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#D4AF37] via-[#E8B4B8] to-[#E8D9A0]"></div>
@@ -66,7 +70,7 @@ const Footer = () => {
       <div className="relative z-10 py-8">
         <div className="container mx-auto px-5">
           {/* Logo and Main Section with Curved Background */}
-          <div className="relative mb-16" data-aos="fade-up">
+          <div className="relative mb-16">
             {/* Curved Background for Logo Section */}
             {/* <div className="absolute inset-0 -top-8 -mx-5 bg-gradient-to-r from-[#D4AF37]/5 to-[#E8B4B8]/5 rounded-3xl transform -skew-y-1"></div> */}
 
@@ -89,7 +93,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <p className="max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed relative z-10" data-aos="fade-up" data-aos-delay="200">
+              <p className="max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed relative z-10">
                 Creating elegant fashion that celebrates femininity and contemporary design.
               </p>
             </div>
@@ -103,7 +107,7 @@ const Footer = () => {
             <div className="hidden lg:block absolute top-0 bottom-0 left-3/4 w-px bg-gradient-to-b from-transparent via-[#E8D9A0]/20 to-transparent"></div>
 
             {/* Company Info */}
-            <div className="footer-col lg:col-span-2" data-aos="fade-right">
+            <div className="footer-col lg:col-span-2">
               <h3 className="text-2xl font-playfair font-semibold mb-6 text-gold bg-gradient-to-r from-[#D4AF37] via-[#E8B4B8] to-[#E8D9A0] bg-clip-text text-transparent">
                 Frolic Exports
               </h3>
@@ -147,7 +151,7 @@ const Footer = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="footer-col" data-aos="fade-up" data-aos-delay="100">
+            <div className="footer-col">
               <h3 className="text-xl font-playfair font-semibold mb-6 text-gold bg-gradient-to-r from-[#D4AF37] to-[#E8B4B8] bg-clip-text text-transparent">
                 Quick Links
               </h3>
@@ -179,7 +183,7 @@ const Footer = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="footer-col" data-aos="fade-left" data-aos-delay="200">
+            <div className="footer-col" >
               <h3 className="text-xl font-playfair font-semibold mb-6 text-gold bg-gradient-to-r from-[#E8B4B8] to-[#D4AF37] bg-clip-text text-transparent">
                 Contact Info
               </h3>
@@ -221,21 +225,21 @@ const Footer = () => {
           <div className="relative mb-12">
             <div className="absolute inset-0 -mx-5 bg-gradient-to-r from-[#D4AF37]/10 to-[#E8B4B8]/10 rounded-2xl transform"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 py-">
-              <div className="text-center" data-aos="fade-up">
+              <div className="text-center" >
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-2xl flex items-center cursor-pointer justify-center text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-award"></i>
                 </div>
                 <h4 className="text-gold font-semibold mb-2 bg-gradient-to-r from-[#D4AF37] to-[#E8B4B8] bg-clip-text text-transparent">Quality Certified</h4>
                 <p className="text-gray-400 text-sm">SEDEX & Intertek Approved</p>
               </div>
-              <div className="text-center" data-aos="fade-up" data-aos-delay="100">
+              <div className="text-center">
                 <div className="w-16 h-16 mx-auto cursor-pointer mb-4 bg-gradient-to-br from-[#E8B4B8] to-[#D4AF37] rounded-2xl flex items-center justify-center text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-leaf"></i>
                 </div>
                 <h4 className="text-gold font-semibold mb-2 bg-gradient-to-r from-[#E8B4B8] to-[#D4AF37] bg-clip-text text-transparent">Eco Friendly</h4>
                 <p className="text-gray-400 text-sm">Sustainable Practices</p>
               </div>
-              <div className="text-center" data-aos="fade-up" data-aos-delay="200">
+              <div className="text-center" >
                 <div className="w-16 h-16 mx-auto cursor-pointer mb-4 bg-gradient-to-br from-[#D4AF37] to-[#E8D9A0] rounded-2xl flex items-center justify-center text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-globe"></i>
                 </div>
@@ -264,16 +268,6 @@ const Footer = () => {
                 <a href="/sitemap" className="hover:text-gold transition-colors duration-300 hover:underline">Sitemap</a>
               </div>
             </div>
-
-            {/* Enhanced Back to Top Button */}
-            {/* <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="mt-8 w-14 h-14 bg-gradient-to-br from-[#D4AF37] via-[#E8B4B8] to-[#E8D9A0] rounded-2xl flex items-center justify-center text-white hover:scale-110 hover:shadow-2xl transition-all duration-300 mx-auto group relative overflow-hidden"
-              aria-label="Back to top"
-            >
-              <i className="fas fa-chevron-up group-hover:-translate-y-1 transition-transform duration-300"></i>
-              <div className="absolute inset-0 bg-gradient-to-br from-[#E8D9A0] via-[#E8B4B8] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button> */}
           </div>
         </div>
       </div>

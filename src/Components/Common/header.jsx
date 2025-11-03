@@ -296,7 +296,7 @@ const Header = () => {
           {/* Right Section: Glamstra Button - Hide on screens less than 1260px */}
           <div className="hidden xl:flex items-center space-x-4 flex-shrink-0">
             <button className="btn bg-gradient-to-br from-gold to-gold-light text-white py-2 px-4 2xl:py-3 2xl:px-6 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40 text-sm 2xl:text-base">
-              Glamstra
+              Glamystra
             </button>
           </div>
         </div>

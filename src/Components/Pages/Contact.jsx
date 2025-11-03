@@ -13,49 +13,49 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const mapRef = useRef(null);
 
-const location = useLocation();
+  const location = useLocation();
 
-// useEffect(() => {
-//   const params = new URLSearchParams(location.search);
-//   const prefillMessage = params.get("message");
-//   if (prefillMessage) {
-//     setFormData((prev) => ({
-//       ...prev,
-//       message: decodeURIComponent(prefillMessage),
-//       subject: `Job Application – ${decodeURIComponent(prefillMessage.match(/"(.*?)"/)?.[1] || "")}`,
-//     }));
-//   }
-// }, [location.search]);
-
-
-
-useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const prefillMessage = params.get("message");
-
-  if (prefillMessage) {
-    // Prefill message & subject automatically
-    setFormData((prev) => ({
-      ...prev,
-      message: decodeURIComponent(prefillMessage),
-      subject: `Job Application – ${decodeURIComponent(
-        prefillMessage.match(/"(.*?)"/)?.[1] || prefillMessage
-      )}`,
-    }));
-
-    // Smooth scroll to contact form
-    setTimeout(() => {
-      const formSection = document.querySelector("form");
-      if (formSection) {
-        formSection.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }, 600);
-  }
-}, [location.search]);
+  // useEffect(() => {
+  //   const params = new URLSearchParams(location.search);
+  //   const prefillMessage = params.get("message");
+  //   if (prefillMessage) {
+  //     setFormData((prev) => ({
+  //       ...prev,
+  //       message: decodeURIComponent(prefillMessage),
+  //       subject: `Job Application – ${decodeURIComponent(prefillMessage.match(/"(.*?)"/)?.[1] || "")}`,
+  //     }));
+  //   }
+  // }, [location.search]);
 
 
 
-const handleInputChange = (e) => {
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const prefillMessage = params.get("message");
+
+    if (prefillMessage) {
+      // Prefill message & subject automatically
+      setFormData((prev) => ({
+        ...prev,
+        message: decodeURIComponent(prefillMessage),
+        subject: `Job Application – ${decodeURIComponent(
+          prefillMessage.match(/"(.*?)"/)?.[1] || prefillMessage
+        )}`,
+      }));
+
+      // Smooth scroll to contact form
+      setTimeout(() => {
+        const formSection = document.querySelector("form");
+        if (formSection) {
+          formSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 600);
+    }
+  }, [location.search]);
+
+
+
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -69,7 +69,6 @@ const handleInputChange = (e) => {
     setSubmitStatus(null);
 
     try {
-      // const response = await fetch('https://formsubmit.co/ajax/43189e22c68124815ee9f188d7c6e0d9', {
       const response = await fetch('https://formsubmit.co/ajax/43189e22c68124815ee9f188d7c6e0d9', {
         method: 'POST',
         headers: {
@@ -86,7 +85,7 @@ const handleInputChange = (e) => {
           _template: 'table',
           _captcha: 'false',
           _autoresponse: 'Thank you for contacting us! We will get back to you soon.',
-         _next: 'https://frolicexports.netlify.app/thank-you'
+          _next: 'https://frolicexports.netlify.app/thank-you'
         })
       });
 
@@ -169,23 +168,23 @@ const handleInputChange = (e) => {
 
   return (
     <div className="min-h-screen bg-[#F9F6F0] font-poppins text-[#3C3C3C] pt-16">
-      
+
       {/* ===== PAGE HEADER SECTION ===== */}
       <section className="pt-32 pb-20 text-center relative overflow-hidden">
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] via-[#E8D9A0] to-[#F5E1E2] opacity-15"></div>
-        
+
         {/* Animated gradient effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
-        
+
         {/* SVG pattern background */}
         <div className="absolute inset-0 opacity-10"
-             style={{
-               backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'><path d='M0,0 V100 Q500,50 1000,100 V0 Z' fill='white' opacity='0.3'/></svg>")`,
-               backgroundSize: 'cover'
-             }}>
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'><path d='M0,0 V100 Q500,50 1000,100 V0 Z' fill='white' opacity='0.3'/></svg>")`,
+            backgroundSize: 'cover'
+          }}>
         </div>
-        
+
         {/* Decorative floating elements */}
         <div className="absolute top-10 left-10 w-20 h-20 bg-[#D4AF37] rounded-full blur-xl opacity-20 animate-bounce"></div>
         <div className="absolute bottom-10 right-10 w-16 h-16 bg-[#E8B4B8] rounded-full blur-xl opacity-20 animate-pulse"></div>
@@ -197,7 +196,7 @@ const handleInputChange = (e) => {
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 font-medium" data-aos="fade-up" data-aos-delay="200">
             We'd love to hear from you. Let's start a conversation about how we can help you.
           </p>
-          
+
           {/* Decorative dots */}
           <div className="flex justify-center items-center space-x-4 mt-8" data-aos="fade-up" data-aos-delay="400">
             <div className="w-3 h-3 bg-[#D4AF37] rounded-full"></div>
@@ -211,30 +210,30 @@ const handleInputChange = (e) => {
       <section className="py-20">
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ContactCard 
+            <ContactCard
               icon="fas fa-map-marker-alt"
               title="Visit Our Office"
-              details={["123 Fashion Avenue", "New York, NY 10001", "United States"]}
+              details={["C-129", "Hosiery Complex", "Phase-2, Noida-201305"]}
               linkText="Get Directions"
               linkUrl="#"
               delay="100"
               color="from-[#D4AF37] to-[#E8B4B8]"
             />
-            <ContactCard 
+            <ContactCard
               icon="fas fa-phone-alt"
               title="Call Us"
-              details={["+1 (555) 123-4567", "+1 (555) 987-6543", "Mon-Fri: 9AM-6PM EST"]}
+              details={["+919818620740", "Mon-Fri: 9AM-6PM EST"]}
               linkText="Call Now"
-              linkUrl="tel:+15551234567"
+              linkUrl="tel:+919818620740"
               delay="200"
               color="from-[#E8B4B8] to-[#D4AF37]"
             />
-            <ContactCard 
+            <ContactCard
               icon="fas fa-envelope"
               title="Email Us"
-              details={["hello@frolic.com", "support@frolic.com", "We reply within 24 hours"]}
+              details={["supriyas@frolicexport.com", "We reply within 24 hours"]}
               linkText="Send Email"
-              linkUrl="mailto:hello@frolic.com"
+              linkUrl="mailto:supriyas@frolicexport.com"
               delay="300"
               color="from-[#D4AF37] to-[#E8D9A0]"
             />
@@ -246,26 +245,26 @@ const handleInputChange = (e) => {
       <section className="py-20 bg-gradient-to-br from-[#F5F1E8] to-[#F9F6F0] relative overflow-hidden">
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            
+
             {/* Contact Form */}
             <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl" data-aos="fade-right">
               <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-2 text-[#3C3C3C]">Send Us a Message</h2>
               <p className="text-gray-600 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
-              
+
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 flex items-center">
                   <i className="fas fa-check-circle text-green-500 mr-3"></i>
                   Thank you! Your message has been sent successfully.
                 </div>
               )}
-              
+
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 flex items-center">
                   <i className="fas fa-exclamation-circle text-red-500 mr-3"></i>
                   Sorry, there was an error sending your message. Please try again.
                 </div>
               )}
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
@@ -291,7 +290,7 @@ const handleInputChange = (e) => {
                     disabled={isSubmitting}
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     label="Phone Number"
@@ -315,7 +314,7 @@ const handleInputChange = (e) => {
                     disabled={isSubmitting}
                   />
                 </div>
-                
+
                 <FormField
                   label="Message"
                   name="message"
@@ -328,7 +327,7 @@ const handleInputChange = (e) => {
                   rows={5}
                   disabled={isSubmitting}
                 />
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -348,10 +347,10 @@ const handleInputChange = (e) => {
                 </button>
               </form>
             </div>
-            
+
             {/* Contact Information & Map */}
             <div className="space-y-8" data-aos="fade-left">
-              
+
               {/* Office Hours */}
               <div className="bg-white rounded-2xl p-8 shadow-xl">
                 <h3 className="font-playfair text-2xl font-semibold mb-6 text-[#3C3C3C] flex items-center">
@@ -371,7 +370,7 @@ const handleInputChange = (e) => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Quick Contact */}
               <div className="bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-2xl p-8 text-white shadow-xl">
                 <h3 className="font-playfair text-2xl font-semibold mb-6 flex items-center">
@@ -390,18 +389,26 @@ const handleInputChange = (e) => {
                   </a>
                 </div>
               </div>
-              
+
               {/* Map Placeholder */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
-                <div ref={mapRef} className="h-64 bg-gradient-to-br from-[#E8D9A0] to-[#F5E1E2] relative flex items-center justify-center">
-                  <div className="text-center">
-                    <i className="fas fa-map-marked-alt text-4xl text-[#D4AF37] mb-4"></i>
-                    <p className="text-[#3C3C3C] font-semibold">Interactive Map</p>
-                    <p className="text-gray-600 text-sm mt-2">123 Fashion Avenue, New York</p>
-                  </div>
+                <div
+                  ref={mapRef}
+                  className="h-64 md:h-96 bg-gradient-to-br from-[#E8D9A0] to-[#F5E1E2] relative flex items-center justify-center"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3505.1605837596608!2d77.4128891!3d28.5348926!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4594ea1c535%3A0x7b3b15f4ec20491a!2sFrolic%20Exports%20Private%20Limited!5e0!3m2!1sen!2sin!4v1762166455158!5m2!1sen!2sin"
+                    className="absolute inset-0 w-full h-full border-0 rounded-2xl"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+
+                  {/* Optional decorative border overlay */}
                   <div className="absolute inset-0 border-4 border-white rounded-2xl pointer-events-none"></div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -417,25 +424,25 @@ const handleInputChange = (e) => {
               Quick answers to common questions about our products and services
             </p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <FAQItem 
+              <FAQItem
                 question="What is your typical response time?"
                 answer="We respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly."
                 delay="100"
               />
-              <FAQItem 
+              <FAQItem
                 question="Do you offer international shipping?"
                 answer="Yes, we ship worldwide. Shipping costs and delivery times vary by location. Contact us for specific rates."
                 delay="200"
               />
-              <FAQItem 
+              <FAQItem
                 question="Can I visit your showroom?"
                 answer="Absolutely! Our showroom is open Monday through Friday from 9 AM to 6 PM. We recommend scheduling an appointment."
                 delay="300"
               />
-              <FAQItem 
+              <FAQItem
                 question="What are your payment methods?"
                 answer="We accept all major credit cards, bank transfers, and offer flexible payment plans for bulk orders."
                 delay="400"
@@ -472,9 +479,9 @@ const handleInputChange = (e) => {
 // ===== CONTACT CARD COMPONENT =====
 const ContactCard = ({ icon, title, details, linkText, linkUrl, delay, color }) => {
   return (
-    <div 
-      className="text-center group cursor-pointer" 
-      data-aos="zoom-in" 
+    <div
+      className="text-center group cursor-pointer"
+      data-aos="zoom-in"
       data-aos-delay={delay}
     >
       <div className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl border-2 border-transparent hover:border-[#F5F1E8] h-full flex flex-col">
@@ -482,26 +489,26 @@ const ContactCard = ({ icon, title, details, linkText, linkUrl, delay, color }) 
         <div className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
           <i className={icon}></i>
         </div>
-        
+
         {/* Title */}
         <h3 className="font-playfair text-xl font-semibold mb-4 text-[#3C3C3C]">{title}</h3>
-        
+
         {/* Details */}
         <div className="flex-1 space-y-2 mb-6">
           {details.map((detail, index) => (
             <p key={index} className="text-gray-600">{detail}</p>
           ))}
         </div>
-        
+
         {/* Action Link */}
-        <a 
-          href={linkUrl} 
+        <a
+          href={linkUrl}
           className={`inline-flex items-center justify-center text-[#D4AF37] font-semibold group-hover:text-[#E8B4B8] transition-colors duration-300`}
         >
           {linkText}
           <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
         </a>
-        
+
         {/* Hover effect line */}
         <div className={`w-0 h-1 bg-gradient-to-r ${color} mx-auto mt-4 group-hover:w-16 transition-all duration-500`}></div>
       </div>
@@ -557,7 +564,7 @@ const FAQItem = ({ question, answer, delay }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div 
+    <div
       className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
       data-aos="fade-up"
       data-aos-delay={delay}

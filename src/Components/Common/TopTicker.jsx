@@ -42,7 +42,7 @@ const TopTicker = () => {
     <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#F5E1E2]/80 via-[#E8D9A0]/80 to-[#D4AF37]/80 backdrop-blur-md text-[#3C3C3C] overflow-hidden h-10 flex items-center border-b border-[#D4AF37]/30 shadow-md z-[9999]">
       <div className="whitespace-nowrap">
         <p className="inline-block animate-marquee font-medium text-sm md:text-base tracking-wide">
-          ✨ Since 1994 ✨&nbsp;&nbsp;&nbsp;&nbsp;Exporting Worldwide&nbsp;&nbsp;&nbsp;&nbsp;✨&nbsp;&nbsp;&nbsp;&nbsp;Luxury Quality Garments&nbsp;&nbsp;&nbsp;&nbsp;✨&nbsp;&nbsp;&nbsp;&nbsp;Trusted by Global Fashion Brands&nbsp;&nbsp;&nbsp;&nbsp;✨
+          ✨ Since 1994 ✨&nbsp;&nbsp;&nbsp;&nbsp;Exporting Worldwide&nbsp;&nbsp;&nbsp;&nbsp;✨&nbsp;&nbsp;&nbsp;&nbsp;Elegent Quality Garments&nbsp;&nbsp;&nbsp;&nbsp;✨&nbsp;&nbsp;&nbsp;&nbsp;Trusted by Global Fashion Brands&nbsp;&nbsp;&nbsp;&nbsp;✨
         </p>
       </div>
 

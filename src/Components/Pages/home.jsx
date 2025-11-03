@@ -516,7 +516,7 @@ const handleQuickView = (product) => {
                 </div>
                 <div className="product-info p-5 text-center">
                   <h3 className="text-lg font-semibold mb-2 text-dark">{product.title}</h3>
-                  <p className="text-gold font-medium">{product.price}</p>
+                  {/* <p className="text-gold font-medium">{product.price}</p> */}
                 </div>
               </div>
             ))}

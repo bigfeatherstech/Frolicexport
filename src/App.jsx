@@ -61,7 +61,6 @@ function App() {
         <Route path='/infrastructure' element={<Infrastructure />} />
         <Route path='/tradeEvents' element={<TradeEvents />} />
 
-        {/* <Route path='/design-foundation' element={<TradeEvents />} /> */}
           {/* Individual category routes for direct navigation */}
         <Route path='/cord-set' element={<ProductCategory />} />
         <Route path='/tops-blouses' element={<ProductCategory />} />

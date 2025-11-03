@@ -167,7 +167,7 @@ const About = () => {
               <div className="flex-1" data-aos="fade-right">
                 <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-5 text-[#3C3C3C]">Our Humble Beginnings</h2>
                 <p className="mb-5 text-gray-600 leading-relaxed">
-                  Frolic Exports was founded in 2010 with a vision to create fashion that celebrates the modern woman. What started as a small boutique in New York has grown into an internationally recognized brand known for its elegant designs and impeccable craftsmanship.
+                  Frolic Exports was founded in 1994 with a vision to create fashion that celebrates the modern woman. What started as a small boutique in New York has grown into an internationally recognized brand known for its elegant designs and impeccable craftsmanship.
                 </p>
                 <p className="mb-5 text-gray-600 leading-relaxed">
                   Our founder, Isabella Rodriguez, believed that clothing should not only make women look beautiful but also feel confident and empowered. This philosophy remains at the core of everything we create.
@@ -611,7 +611,7 @@ const StatCard = ({ icon, value, label, delay, color }) => {
     </div>
   );
 };
-
+  
 // ===== PROCESS STEP COMPONENT =====
 // Individual step card for the "From Sketch to Stitch" section
 const ProcessStep = ({ number, icon, title, description, delay, position }) => {

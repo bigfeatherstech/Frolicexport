@@ -116,7 +116,7 @@ const Product = () => {
                 onClick={() => handleFilterChange(filter)}
                 className={`filter-btn px-6 py-3 bg-white border-2 rounded-full font-medium cursor-pointer transition-all duration-300 capitalize ${
                   activeFilter === filter
-                    ? 'bg-pink border-pink text-white shadow-lg'
+                    ? 'bg-pink border-pink text-dark shadow-lg'
                     : 'border-pink-light text-gray-700 hover:bg-pink-light hover:border-pink'
                 }`}
               >
@@ -153,7 +153,7 @@ const Product = () => {
                   </div>
                   <div className="product-info p-6 text-center">
                     <h3 className="text-lg font-semibold mb-2 text-dark">{product.title}</h3>
-                    <p className="text-gold font-medium text-lg mb-3">{product.price}</p>
+                    {/* <p className="text-gold font-medium text-lg mb-3">{product.price}</p> */}
                     <div className="product-meta flex justify-between items-center">
                       <span className="product-category bg-pink-light text-dark text-xs px-3 py-1 rounded-full capitalize">
                         {product.category?.replace('-', ' ') || 'Fashion'}
