@@ -69,6 +69,7 @@ const handleInputChange = (e) => {
     setSubmitStatus(null);
 
     try {
+      // const response = await fetch('https://formsubmit.co/ajax/43189e22c68124815ee9f188d7c6e0d9', {
       const response = await fetch('https://formsubmit.co/ajax/43189e22c68124815ee9f188d7c6e0d9', {
         method: 'POST',
         headers: {
@@ -85,7 +86,7 @@ const handleInputChange = (e) => {
           _template: 'table',
           _captcha: 'false',
           _autoresponse: 'Thank you for contacting us! We will get back to you soon.',
-          _next: window.location.href
+         _next: 'https://frolicexports.netlify.app/thank-you'
         })
       });
 
