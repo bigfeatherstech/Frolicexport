@@ -147,13 +147,15 @@ const Footer = () => {
               <h3 className="text-xl font-playfair font-semibold mb-6 text-gold bg-gradient-to-r from-[#D4AF37] to-[#E8B4B8] bg-clip-text text-transparent">
                 Quick Links
               </h3>
-              <ul className="footer-links space-y-">
+              <ul className="footer-links">
                 {[
                   { name: 'Home', path: '/' },
                   { name: 'About Us', path: '/about' },
                   { name: 'Products', path: '/products' },
-                  { name: 'Trade Events', path: '/TradeEvents' },
-                  { name: 'Infrastructure', path: '/Infrastructure' },
+                  { name: ' Our Team', path: '/ourteam' },
+                  { name: 'Trade Events', path: '/tradeEvents' },
+                  { name: 'Infrastructure', path: '/infrastructure' },
+                  { name: 'Career', path: '/career' },
                   { name: 'Contact', path: '/contact' }
                 ].map((link, index) => (
                   <li key={link.name}>
@@ -213,7 +215,7 @@ const Footer = () => {
 
           {/* Additional Info Section with Curved Background */}
           <div className="relative mb-12">
-            <div className="absolute inset-0 -mx-5 bg-gradient-to-r from-[#D4AF37]/10 to-[#E8B4B8]/10 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 -mx-5 bg-gradient-to-r from-[#D4AF37]/10 to-[#E8B4B8]/10 rounded-2xl transform"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 py-">
               <div className="text-center" data-aos="fade-up">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-2xl flex items-center cursor-pointer justify-center text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300">

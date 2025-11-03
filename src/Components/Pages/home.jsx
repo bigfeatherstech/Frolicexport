@@ -174,7 +174,7 @@ const handleQuickView = (product) => {
           <div
             className="md:hidden w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(src/assets/productsimages/maxidress3.jpg)`
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(src/assets/productsimages/maxidress1.jpg)`
             }}
           />
         </div>
@@ -285,7 +285,7 @@ const handleQuickView = (product) => {
     CUSTOM STYLES
     Enhanced pagination dots and mobile optimizations
   */}
-  <style jsx>{`
+  <style jsx="true">{`
     /* Custom pagination dots styling */
     .hero-bullet {
       width: 10px;

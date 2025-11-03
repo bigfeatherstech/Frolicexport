@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -125,8 +124,8 @@ const Header = () => {
       >
         <div className="container-fluid mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 flex justify-between items-center">
           {/* Logo */}
-          <NavLink 
-            to="/" 
+          <a 
+            href="/" 
             className="logo text-2xl font-bold text-gold font-playfair flex-shrink-0" 
             onClick={closeAll}
           >
@@ -135,7 +134,7 @@ const Header = () => {
               className="w-32 sm:w-36 md:w-40 h-auto"
               alt="Frolic Exports"
             />
-          </NavLink>
+          </a>
 
           {/* Mobile Menu Button - Show on screens less than 1260px */}
           <button
@@ -160,30 +159,23 @@ const Header = () => {
           >
             <ul className="flex flex-col xl:flex-row xl:items-center p-4 xl:p-0 space-y-1 xl:space-y-0 xl:space-x-6 2xl:space-x-8">
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a href=""></a>
+                <a
+                  href="/"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   Home
-                </NavLink>
+                </a>
               </li>
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/about"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   About
-                </NavLink>
+                </a>
               </li>
               
               {/* Products Dropdown */}
@@ -195,15 +187,9 @@ const Header = () => {
                 onMouseEnter={() => handleDropdownMouseEnter('products')}
                 onMouseLeave={handleDropdownMouseLeave}
               >
-                <NavLink
-                  to="/product"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center justify-between xl:justify-start py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive || activeDropdown === 'products' 
-                        ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' 
-                        : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/product"
+                  className="font-medium transition-colors duration-300 flex items-center justify-between xl:justify-start py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={(e) => {
                     if (window.innerWidth <= 1260) {
                       e.preventDefault();
@@ -219,7 +205,7 @@ const Header = () => {
                       activeDropdown === 'products' ? 'rotate-180' : ''
                     }`}
                   ></i>
-                </NavLink>
+                </a>
                 
                 {/* Dropdown Menu */}
                 <div
@@ -231,116 +217,78 @@ const Header = () => {
                   onMouseEnter={handleDropdownMenuMouseEnter}
                   onMouseLeave={handleDropdownMenuMouseLeave}
                 >
-                  <NavLink
-                    to="/cord-set"
-                    className={({ isActive }) => 
-                      `block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base ${
-                        isActive 
-                          ? 'bg-gold bg-opacity-10 text-gold font-medium' 
-                          : 'text-dark hover:bg-gray-50 hover:text-gold'
-                      }`
-                    }
+                  <a
+                    href="/cord-set"
+                    className="block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base text-dark hover:bg-gray-50 hover:text-gold"
                     onClick={closeAll}
                   >
                     Cord Set
-                  </NavLink>
-                  <NavLink
-                    to="/tops-blouses"
-                    className={({ isActive }) => 
-                      `block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base ${
-                        isActive 
-                          ? 'bg-gold bg-opacity-10 text-gold font-medium' 
-                          : 'text-dark hover:bg-gray-50 hover:text-gold'
-                      }`
-                    }
+                  </a>
+                  <a
+                    href="/tops-blouses"
+                    className="block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base text-dark hover:bg-gray-50 hover:text-gold"
                     onClick={closeAll}
                   >
                     Tops/Blouses
-                  </NavLink>
-                  <NavLink
-                    to="/dresses"
-                    className={({ isActive }) => 
-                      `block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base ${
-                        isActive 
-                          ? 'bg-gold bg-opacity-10 text-gold font-medium' 
-                          : 'text-dark hover:bg-gray-50 hover:text-gold'
-                      }`
-                    }
+                  </a>
+                  <a
+                    href="/dresses"
+                    className="block py-3 px-4 xl:px-4 2xl:px-5 transition-all duration-300 hover:pl-6 xl:hover:pl-5 border-b border-gray-100 last:border-b-0 rounded-lg xl:rounded-none mx-2 xl:mx-0 text-sm 2xl:text-base text-dark hover:bg-gray-50 hover:text-gold"
                     onClick={closeAll}
                   >
                     Dresses
-                  </NavLink>
+                  </a>
                 </div>
               </li>
               
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/ourteam"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/ourteam"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   Our Team
-                </NavLink>
+                </a>
               </li>
 
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/brand-showcases"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/infrastructure"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   Infrastructure
-                </NavLink>
+                </a>
               </li>
               
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/design-foundation"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/tradeEvents"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   Trade Events
-                </NavLink>
+                </a>
               </li>
               
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/career"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/career"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   Career
-                </NavLink>
+                </a>
               </li>
               
               <li className="w-full xl:w-auto">
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) => 
-                    `font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base ${
-                      isActive ? 'text-gold bg-gold bg-opacity-10 xl:bg-transparent' : 'text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent'
-                    }`
-                  }
+                <a
+                  href="/contact"
+                  className="font-medium transition-colors duration-300 flex items-center py-3 xl:py-2 px-4 xl:px-0 rounded-lg xl:rounded-none text-base xl:text-sm 2xl:text-base text-dark hover:text-gold hover:bg-gray-50 xl:hover:bg-transparent"
                   onClick={closeAll}
                 >
                   Contact
-                </NavLink>
+                </a>
               </li>
             </ul>
           </nav>
@@ -365,4 +313,4 @@ const Header = () => {
   );
 };
 
-export default Header;  
+export default Header;

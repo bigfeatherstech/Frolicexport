@@ -25,7 +25,7 @@ import pinkdress4 from "/src/assets/productsimages/pinkdress4.jpg"
 export const featuredCollections = [
      {
         id: 1,
-        title: "Premium Cord Set",
+        title: "Cord Set",
         subtitle: "Comfortable and Stylish",
         price: "$89.99",
         image: cord,
@@ -43,7 +43,7 @@ export const featuredCollections = [
     },
     {
         id: 2,
-        title: "Designer Top",
+        title: "Tops/Blouses",
         subtitle: "Elegant and Versatile",
         price: "$59.99",
         image: tops,
@@ -61,7 +61,7 @@ export const featuredCollections = [
     },
     {
         id: 3,
-        title: "Maxi Dress",
+        title: "Dress",
         subtitle: "Graceful and Sophisticated",
         price: "$129.99",
         image: dress,

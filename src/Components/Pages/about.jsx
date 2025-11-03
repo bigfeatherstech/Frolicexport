@@ -154,9 +154,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/* <div>
-        about
-      </div> */}
 
       {/* ===== ABOUT CONTENT SECTION ===== */}
       <section className="py-24">
@@ -218,16 +215,15 @@ const About = () => {
       {/* This ref is used to detect when user scrolls to this section */}
       <section 
         ref={counterSectionRef}
-        // className="py-20 bg-gradient-to-br from-[#F5F1E8] to-[#F9F6F0] relative overflow-hidden"
         className="py-20 bg-gradient-to-br from-[#F5F1E8] to-[#F9F6F0] relative overflow-hidden" style={{
     backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://frolicexport.com/assets/img/frolic-about3.JPG')`,
-    backgroundAttachment: "fixed",
+    backgroundAttachment: "",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat:'no-repeat'
   }}
       >
-        <div className="container mx-auto px-5">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {/* Factory Area Counter */}
             <CounterCard 
@@ -283,95 +279,138 @@ const About = () => {
             <div className="relative z-10 flex justify-center items-center mb-16">
               <div className="w-72 h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-[#E8D9A0] to-[#F5E1E2] rounded-full shadow-2xl flex items-center justify-center p-8 border-8 border-white">
                 <div className="text-center" style={{textAlign:"-webkit-center"}}>
-                  {/* <i className="fas fa-ruler-combined text-7xl lg:text-8xl text-[#D4AF37] mb-6"></i> */}
                   <img src="\src\assets\title-logo.png" alt="" className='animate-bounce [animation-duration:2.5s]' />
                   <p className="font-playfair text-xl lg:text-2xl font-semibold text-[#3C3C3C]">Design & Creation</p>
                 </div>
               </div>
             </div>
 
-            {/* Process steps grid layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
+            {/* Process steps grid layout - COMPLETELY FIXED */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 relative z-20">
               
-              {/* Row 1 - Top steps */}
-              <ProcessStep 
-                number="1"
-                icon="fas fa-lightbulb"
-                title="Concept Planning"
-                description="Defining the idea and theme with creative vision and market research"
-                delay="100"
-                position="top-left"
-              />
-              <ProcessStep 
-                number="2"
-                icon="fas fa-pencil-alt"
-                title="Creative Sketching"
-                description="Making initial fashion sketches and design illustrations"
-                delay="200"
-                position="top-right"
-              />
+              {/* Row 1 */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="100">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-lightbulb text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    1
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Concept Planning</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Defining the idea and theme with creative vision and market research
+                </p>
+              </div>
 
-              {/* Row 2 - Middle steps */}
-              <ProcessStep 
-                number="3"
-                icon="fas fa-cut"
-                title="Prototype Sampling"
-                description="Creating first garment samples and testing patterns"
-                delay="300"
-                position="middle-left"
-              />
-              <ProcessStep 
-                number="4"
-                icon="fa-solid fa-ruler-combined"
-                title="Tailoring & Stitching"
-                description="Precision sewing and construction with expert craftsmanship"
-                delay="400"
-                position="middle-right"
-              />
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="200">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-pencil-alt text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    2
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Creative Sketching</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Making initial fashion sketches and design illustrations
+                </p>
+              </div>
 
-              {/* Row 3 - Bottom steps */}
-              <ProcessStep 
-                number="5"
-                icon="fas fa-search"
-                title="Quality Review"
-                description="Inspecting fabric, seams, and details for perfection"
-                delay="500"
-                position="bottom-left"
-              />
-              <ProcessStep 
-                number="6"
-                icon="fas fa-magic"
-                title="Detail Enhancement"
-                description="Ironing, trimming, labeling and final touches"
-                delay="600"
-                position="bottom-middle"
-              />
+              {/* Row 2 */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="300">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-cut text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    3
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Prototype Sampling</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Creating first garment samples and testing patterns
+                </p>
+              </div>
 
-              {/* Row 4 - Final steps */}
-              <ProcessStep 
-                number="7"
-                icon="fas fa-camera"
-                title="Presentation Setup"
-                description="Preparing for photoshoots and showroom display"
-                delay="700"
-                position="bottom-middle-right"
-              />
-              <ProcessStep 
-                number="8"
-                icon="fas fa-shipping-fast"
-                title="Packaging & Dispatch"
-                description="Folding, tagging, and preparing for delivery"
-                delay="800"
-                position="bottom-right"
-              />
-            </div>
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="400">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fa-solid fa-ruler-combined text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    4
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Tailoring & Stitching</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Precision sewing and construction with expert craftsmanship
+                </p>
+              </div>
 
-            {/* Connecting lines for desktop view */}
-            <div className="hidden lg:block absolute inset-0 pointer-events-none">
-              <div className="absolute top-1/4 left-1/4 w-24 h-24 border-t-2 border-l-2 border-[#E8D9A0] border-dashed rounded-tl-lg"></div>
-              <div className="absolute top-1/4 right-1/4 w-24 h-24 border-t-2 border-r-2 border-[#E8D9A0] border-dashed rounded-tr-lg"></div>
-              <div className="absolute bottom-1/4 left-1/4 w-24 h-24 border-b-2 border-l-2 border-[#E8D9A0] border-dashed rounded-bl-lg"></div>
-              <div className="absolute bottom-1/4 right-1/4 w-24 h-24 border-b-2 border-r-2 border-[#E8D9A0] border-dashed rounded-br-lg"></div>
+              {/* Row 3 */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="500">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-search text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    5
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Quality Review</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Inspecting fabric, seams, and details for perfection
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="600">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-magic text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    6
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Detail Enhancement</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Ironing, trimming, labeling and final touches
+                </p>
+              </div>
+
+              {/* Row 4 */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="700">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-camera text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    7
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Presentation Setup</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Preparing for photoshoots and showroom display
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="800">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-shipping-fast text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    8
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Packaging & Dispatch</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Folding, tagging, and preparing for delivery
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -396,7 +435,7 @@ const About = () => {
           </div>
           
           {/* Values grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 cursor-pointer ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 cursor-pointer">
             <ValueCard 
               icon="fas fa-heart"
               title="Quality Craftsmanship"
@@ -430,7 +469,7 @@ const About = () => {
           </div>
           
           {/* Team grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer">
             <TeamMember 
               image="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               name="Isabella Rodriguez"
@@ -493,51 +532,6 @@ const CounterCard = ({ icon, value, suffix, label, delay, color }) => {
         {/* Hover effect line */}
         <div className={`w-0 h-1 bg-gradient-to-r ${color} mx-auto mt-4 group-hover:w-16 transition-all duration-500`}></div>
       </div>
-    </div>
-  );
-};
-
-// ===== PROCESS STEP COMPONENT =====
-// Individual step card for the "From Sketch to Stitch" section
-const ProcessStep = ({ number, icon, title, description, delay, position }) => {
-  return (
-    <div 
-      className={`bg-white p-8 rounded-3xl shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl border-2 border-[#F5F1E8] group relative overflow-hidden ${
-        position === 'top-left' ? 'lg:-mt-9' :
-        position === 'top-right' ? 'lg:-mt-' :
-        position === 'bottom-left' ? 'lg:-mb-' :
-        position === 'bottom-right' ? 'lg:-mb-9' :
-        ''
-      }`}
-      data-aos="fade-up"
-      data-aos-delay={delay}
-    >
-      
-      {/* Top section with icon and number */}
-      <div className="flex items-start justify-between mb-6">
-        {/* Icon container - Top left */}
-        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-          <i className={`${icon} text-2xl text-[#D4AF37]`}></i>
-        </div>
-        
-        {/* Number badge - Top right */}
-        <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-110 transition-transform duration-300">
-          {number}
-        </div>
-      </div>
-      
-      {/* Content section */}
-      <div className="space-y-4">
-        <h3 className="font-playfair text-xl font-semibold text-[#3C3C3C] group-hover:text-[#D4AF37] transition-colors duration-300 leading-tight">
-          {title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed text-[15px]">
-          {description}
-        </p>
-      </div>
-      
-      {/* Hover gradient background effect */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300 -z-10"></div>
     </div>
   );
 };
