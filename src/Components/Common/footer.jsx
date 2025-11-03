@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import LOGO from "../../../public/logo.png"
+
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -72,7 +74,7 @@ const Footer = () => {
                 <div className="relative group cursor-pointer ">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                   <img
-                    src="\src\assets\logo.png"
+                    src={LOGO}
                     alt="Frolic Exports"
                     className="relative h-16 md:h-20 w-auto filter brightness-0 invert opacity-90 hover:scale-110 transition-transform duration-300 z-10"
                     onError={(e) => {

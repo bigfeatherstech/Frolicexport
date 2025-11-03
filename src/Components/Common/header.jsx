@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import LOGO from "../../../public/logo.png"
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -130,7 +131,7 @@ const Header = () => {
             onClick={closeAll}
           >
             <img
-              src="\src\assets\logo.png"
+              src={LOGO}
               className="w-32 sm:w-36 md:w-40 h-auto"
               alt="Frolic Exports"
             />
