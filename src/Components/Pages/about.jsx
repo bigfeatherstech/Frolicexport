@@ -217,7 +217,7 @@ const About = () => {
         ref={counterSectionRef}
         className="py-20 bg-gradient-to-br from-[#F5F1E8] to-[#F9F6F0] relative overflow-hidden" style={{
     backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://frolicexport.com/assets/img/frolic-about3.JPG')`,
-    backgroundAttachment: "",
+    backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat:'no-repeat'
@@ -279,7 +279,7 @@ const About = () => {
             <div className="relative z-10 flex justify-center items-center mb-16">
               <div className="w-72 h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-[#E8D9A0] to-[#F5E1E2] rounded-full shadow-2xl flex items-center justify-center p-8 border-8 border-white">
                 <div className="text-center" style={{textAlign:"-webkit-center"}}>
-                  <img src="\src\assets\title-logo.png" alt="" className='animate-bounce [animation-duration:2.5s]' />
+                  <img src="/src/assets/title-logo.png" alt="Frolic Exports Logo" className='animate-bounce [animation-duration:2.5s]' />
                   <p className="font-playfair text-xl lg:text-2xl font-semibold text-[#3C3C3C]">Design & Creation</p>
                 </div>
               </div>
@@ -350,9 +350,67 @@ const About = () => {
                 </p>
               </div>
 
+              {/* Additional steps for 8-step process */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="500">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-search text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    5
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Quality Inspection</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Thorough quality checks and fabric validation
+                </p>
+              </div>
 
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="600">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-palette text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    6
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Color & Finishing</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Applying colors and final touches to the garment
+                </p>
+              </div>
 
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="700">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-tags text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    7
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Branding & Packaging</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Adding brand elements and premium packaging
+                </p>
+              </div>
 
+              <div className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border-2 border-[#F5F1E8] group" data-aos="fade-up" data-aos-delay="800">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] rounded-xl flex items-center justify-center shadow-lg">
+                    <i className="fas fa-shipping-fast text-xl text-[#D4AF37]"></i>
+                  </div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                    8
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg font-semibold mb-3 text-[#3C3C3C]">Delivery</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Final quality check and shipping to customers
+                </p>
+              </div>
+            </div>
 
             {/* Connecting lines for desktop view */}
             <div className="hidden lg:block absolute inset-0 pointer-events-none">
@@ -365,10 +423,8 @@ const About = () => {
         </div>
       </section>
 
-
-{/* our team */}
-
- <section className="py-20 bg-gradient-to-br relative overflow-hidden">
+      {/* ===== STATS SECTION ===== */}
+      <section className="py-20 bg-gradient-to-br relative overflow-hidden">
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <StatCard 
@@ -402,15 +458,10 @@ const About = () => {
           </div>
         </div>
         
-        
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37] rounded-full opacity-5 -translate-x-30 -translate-y-10"></div>
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37] rounded-full opacity-5 translate-x-16 -translate-y-10"></div>
         <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#E8B4B8] rounded-full opacity-5 translate-x-20 translate-y-20"></div>
       </section>
-
-
-
-
-
 
       {/* ===== VALUES SECTION ===== */}
       <section className="py-24 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] relative overflow-hidden">
@@ -463,15 +514,11 @@ const About = () => {
               The passionate individuals behind Frolic Exports
             </p>
           </div>
-          
-  
-
 
           {/* Team grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer">
             <TeamMember 
-                          image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-
+              image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
               name="Isabella Rodriguez"
               role="Founder & Creative Director"
               delay="100"
@@ -536,8 +583,7 @@ const CounterCard = ({ icon, value, suffix, label, delay, color }) => {
   );
 };
 
-
-{/* our team */}
+// ===== STAT CARD COMPONENT =====
 const StatCard = ({ icon, value, label, delay, color }) => {
   return (
     <div 
@@ -564,9 +610,6 @@ const StatCard = ({ icon, value, label, delay, color }) => {
   );
 };
 
-
-
-
 // ===== PROCESS STEP COMPONENT =====
 // Individual step card for the "From Sketch to Stitch" section
 const ProcessStep = ({ number, icon, title, description, delay, position }) => {
@@ -574,8 +617,8 @@ const ProcessStep = ({ number, icon, title, description, delay, position }) => {
     <div 
       className={`bg-white p-8 rounded-3xl shadow-xl transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl border-2 border-[#F5F1E8] group relative overflow-hidden ${
         position === 'top-left' ? 'lg:-mt-9' :
-        position === 'top-right' ? 'lg:-mt-' :
-        position === 'bottom-left' ? 'lg:-mb-' :
+        position === 'top-right' ? 'lg:-mt-9' :
+        position === 'bottom-left' ? 'lg:-mb-9' :
         position === 'bottom-right' ? 'lg:-mb-9' :
         ''
       }`}

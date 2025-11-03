@@ -48,7 +48,7 @@ function App() {
     <>
 
     <div className="min-h-screen">
-      <TopTicker/>
+      {/* <TopTicker/> */}
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
