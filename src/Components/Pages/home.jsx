@@ -17,12 +17,13 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 // Import AOS
 import AOS from 'aos';
-import image1 from "../../assets/image1.png"
-import image2 from "../../assets/image2.png"
-import image3 from "../../assets/image3.png"
+import image1 from "../../assets/image1.JPG"
+import image2 from "../../assets/image2.JPG"
+import image3 from "../../assets/image3.JPG"
 import image9 from "../../assets/image9.jpg"
-import banner1 from "../../assets/banner1.png"
 import banner2 from "../../assets/banner2.png"
+import banner5 from "../../assets/banner5.png"
+
 
 
 const Home = () => {
@@ -83,6 +84,8 @@ const Home = () => {
   }
 
   return (
+    <>
+  
     <div className="min-h-screen">
       {/* Product Detail Modal */}
       <ProductDetailModal
@@ -93,79 +96,12 @@ const Home = () => {
         onImageChange={handleImageChange}
       />
 
-      {/* Hero Section */}
-      {/* <section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
-        <div className="hero-swiper w-full h-full absolute inset-0 z-0">
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={0}
-            slidesPerView={1}
-            loop={true}
-            pagination={{ 
-              clickable: true,
-              el: '.hero-pagination'
-            }}
-            autoplay={{ 
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            className="h-full w-full"
-          >
-            <SwiperSlide>
-              <div 
-                className="hero-swiper-slide w-full h-full bg-cover bg-center"
-                style={{
-                  // backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/953262/pexels-photo-953262.jpeg)'
-             backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${image3})`
-
-
-                }}
-              ></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="hero-swiper-slide w-full h-full bg-cover bg-center"
-                style={{
-                  // backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg)'
-                   backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${image2})`
-                }}
-              ></div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div 
-                className="hero-swiper-slide w-full h-full bg-cover bg-center"
-                style={{
-                  // backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.pexels.com/photos/247287/pexels-photo-247287.jpeg)'
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(${image1})`
-                }}
-              ></div>
-            </SwiperSlide>
-          </Swiper>
-          <div className="hero-pagination swiper-pagination !bottom-4"></div>
-        </div>
-
-        <div className="container mx-auto px-5 relative z-10">
-          <div className="hero-content max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-            <h1 className="text-4xl md:text-5xl font-playfair font-semibold mb-5 text-dark leading-tight">
-              Elegance in Every Thread
-            </h1>
-            <p className="text-lg mb-8 text-gray-600">
-              Discover the Craft of Frolic Exports. Where tradition meets contemporary design in fashion that inspires confidence and grace.
-            </p>
-            <div className="hero-btns flex flex-col sm:flex-row gap-4">
-              <a href="/products" className="btn bg-gradient-to-br from-gold to-gold-light text-white py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 shadow-lg shadow-gold/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/40">
-                Explore Collections
-              </a>
-              <a href="#contact" className="btn btn-outline bg-transparent border-2 border-gold text-gold py-3 px-8 rounded-full font-medium no-underline cursor-pointer transition-all duration-300 hover:bg-gold hover:text-white">
-                Get in Touch
-              </a>
-            </div>
-          </div>
-        </div>
-      </section> */}
+     
 
    <section className="hero mt-20 h-[70vh] relative overflow-hidden flex items-center bg-gradient-to-br from-beige to-ivory">
   <div className="hero-swiper w-full h-full absolute inset-0 z-0">
+  
+
     <Swiper
       modules={[Autoplay, Pagination, Navigation]}
       spaceBetween={0}
@@ -186,7 +122,9 @@ const Home = () => {
     >
       <SwiperSlide>
         <div
-          className="hero-swiper-slide w-full h-full bg-cover bg-center"
+          className="hero-swiper-slide w-full h-full bg-cover bg-center "
+                //  className="hero-swiper-slide w-full h-full bg-cover bg-center bg-contain sm:bg-cover bg-center bg-no-repeat transition-all"
+
           style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner2})`
           }}
@@ -197,22 +135,15 @@ const Home = () => {
         <div
           className="hero-swiper-slide w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner1})`
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner5})`
           }}
         />
       </SwiperSlide>
 
-      <SwiperSlide>
-        <div
-          className="hero-swiper-slide w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${image1})`
-          }}
-        />
-      </SwiperSlide>
+     
     </Swiper>
 
-    {/* Navigation Buttons - Hidden on mobile */}
+
     <button className="hero-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden lg:flex">
       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -225,10 +156,9 @@ const Home = () => {
       </svg>
     </button>
 
-    {/* Optional global overlay */}
+
     <div className="absolute inset-0 bg-black/25 z-5 pointer-events-none" />
-    
-    {/* Custom Pagination Dots */}
+  
     <div className="hero-pagination swiper-pagination !bottom-4 flex justify-center gap-2" />
   </div>
 
@@ -626,6 +556,7 @@ const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

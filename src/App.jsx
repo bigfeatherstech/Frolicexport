@@ -11,6 +11,7 @@ import Career from './Components/Pages/Career';
 import Contact from './Components/Pages/Contact';
 import Infrastructure from './Components/Pages/Infrastructure';
 import TradeEvents from './Components/Pages/TradeEvents';
+import TopTicker from './Components/Common/TopTicker';
 
 function App() {
   useEffect(() => {
@@ -43,7 +44,10 @@ function App() {
   }, []);
 
   return (
+    <>
+
     <div className="min-h-screen">
+      <TopTicker/>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -61,6 +65,7 @@ function App() {
       <Footer />
       <BottomToTop />
     </div>
+    </>
   );
 }
 

@@ -148,13 +148,20 @@
 
 
 import React from "react";
-import image3 from "../../assets/image3.png";
+import image1 from "../../assets/image3.JPG";
+import image3 from "../../assets/image3.JPG";
 import image5 from "../../assets/image5.JPG";
 import image8 from "../../assets/image8.jpg";
 import image9 from "../../assets/image9.jpg";
 import image7 from "../../assets/image7.jpg";
-// import banner from "../../assets/banner3.jpg";
 import banner from "../../assets/banner4.jpg";
+import trade2 from "../../assets/Trade2.jpg"
+import trade3 from "../../assets/Trade3.jpg"
+import trade1 from "../../assets/Trade1.jpg"
+import trade4 from "../../assets/Trade4.jpg"
+import trade5 from "../../assets/Trade5.jpg"
+import trade6 from "../../assets/Trade6.jpg"
+import logo from "../../assets/logo.png"
 
 const TradeShows = () => {
   const shows = [
@@ -162,7 +169,7 @@ const TradeShows = () => {
       title: "International Garment Expo",
       location: "Dubai, UAE",
       year: "2025",
-      image: image3,
+      image: trade1,
       description:
         "Showcased our latest garment innovations and established key partnerships across the Middle East market.",
     },
@@ -170,7 +177,7 @@ const TradeShows = () => {
       title: "India International Trade Fair",
       location: "New Delhi, India",
       year: "2024",
-      image: image5,
+      image: trade2,
       description:
         "Presented premium quality collections and sustainable fabrics to global fashion distributors and buyers.",
     },
@@ -178,7 +185,7 @@ const TradeShows = () => {
       title: "Paris Fashion Connect",
       location: "Paris, France",
       year: "2023",
-      image: image8,
+      image: trade3,
       description:
         "Introduced high-fashion export lines and expanded presence across European retail networks.",
     },
@@ -186,7 +193,7 @@ const TradeShows = () => {
       title: "Global Apparel Business Meet",
       location: "Singapore",
       year: "2022",
-      image: image9,
+      image: trade4,
       description:
         "Engaged with international partners to strengthen B2B trade collaborations and supply chain expansion.",
     },
@@ -194,7 +201,7 @@ const TradeShows = () => {
       title: "World Textile Expo",
       location: "Istanbul, Turkey",
       year: "2021",
-      image: image3,
+      image: trade5,
       description:
         "Exhibited innovative textile solutions and sustainable fashion fabrics for international markets.",
     },
@@ -202,7 +209,7 @@ const TradeShows = () => {
       title: "Asian Fashion Week",
       location: "Tokyo, Japan",
       year: "2020",
-      image: image8,
+      image: trade6,
       description:
         "Showcased luxury fashion wear blending modern technology with traditional craftsmanship.",
     },
@@ -214,7 +221,7 @@ const TradeShows = () => {
       {/* === Banner Image === */}
       <div className="relative w-full h-[40vh] md:h-[40vh] overflow-hidden">
         <img
-          src={banner}
+          src={trade2}
           alt="Trade Shows Banner"
           className="w-full h-full object-cover brightness-[0.75] scale-105"
         />
@@ -276,7 +283,7 @@ const TradeShows = () => {
           </div>
           <div>
             <img
-              src={image8}
+              src={logo}
               alt="Global Presence"
               className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-700"
             />
@@ -291,7 +298,7 @@ const TradeShows = () => {
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto px-6">
           {[
-            { label: "Years of Experience", value: "15+" },
+            { label: "Years of Experience", value: "30+" },
             { label: "Global Exhibitions", value: "40+" },
             { label: "Countries Reached", value: "25+" },
             { label: "International Partners", value: "120+" },
@@ -318,13 +325,13 @@ const TradeShows = () => {
               title: "Asia Apparel Expo 2026",
               date: "March 2026",
               location: "Bangkok, Thailand",
-              image: image5,
+              image: trade1,
             },
             {
               title: "Textile World Summit",
               date: "June 2026",
               location: "London, UK",
-              image: image3,
+              image: trade2,
             },
           ].map((event, i) => (
             <div

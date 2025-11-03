@@ -1,7 +1,8 @@
 
 
 import React from "react";
-import image3 from "../../assets/image3.png";
+
+import image6 from "../../assets/image6.JPG";
 import image5 from "../../assets/image5.JPG";
 import image8 from "../../assets/image8.jpg";
 import image9 from "../../assets/image9.jpg";
@@ -12,7 +13,7 @@ const Infrastructure = () => {
       title: "State-of-the-Art Production Facility",
       description:
         "Our garment manufacturing unit is equipped with advanced machinery for stitching, cutting, and finishing. Each process is optimized to ensure precision, quality, and efficiency.",
-      image: image3,
+      image: image6,
     },
     {
       title: "Expert Tailoring & Stitching Units",

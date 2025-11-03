@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useLocation } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,49 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const mapRef = useRef(null);
 
-  const handleInputChange = (e) => {
+const location = useLocation();
+
+// useEffect(() => {
+//   const params = new URLSearchParams(location.search);
+//   const prefillMessage = params.get("message");
+//   if (prefillMessage) {
+//     setFormData((prev) => ({
+//       ...prev,
+//       message: decodeURIComponent(prefillMessage),
+//       subject: `Job Application – ${decodeURIComponent(prefillMessage.match(/"(.*?)"/)?.[1] || "")}`,
+//     }));
+//   }
+// }, [location.search]);
+
+
+
+useEffect(() => {
+  const params = new URLSearchParams(location.search);
+  const prefillMessage = params.get("message");
+
+  if (prefillMessage) {
+    // Prefill message & subject automatically
+    setFormData((prev) => ({
+      ...prev,
+      message: decodeURIComponent(prefillMessage),
+      subject: `Job Application – ${decodeURIComponent(
+        prefillMessage.match(/"(.*?)"/)?.[1] || prefillMessage
+      )}`,
+    }));
+
+    // Smooth scroll to contact form
+    setTimeout(() => {
+      const formSection = document.querySelector("form");
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 600);
+  }
+}, [location.search]);
+
+
+
+const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,

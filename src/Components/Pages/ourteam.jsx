@@ -174,8 +174,8 @@ const Ourteam = () => {
         </div>
       </section>
 
-      {/* ===== TEAM STATS SECTION ===== */}
-      <section className="py-20 bg-gradient-to-br relative overflow-hidden">
+    {/* ===== TEAM STATS SECTION ===== */}
+      {/* <section className="py-20 bg-gradient-to-br relative overflow-hidden">
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <StatCard 
@@ -201,7 +201,7 @@ const Ourteam = () => {
             />
             <StatCard 
               icon="fas fa-heart"
-              value="10+"
+              value="30+"
               label="Years Experience"
               delay="400"
               color="from-[#E8D9A0] to-[#E8B4B8]"
@@ -209,11 +209,10 @@ const Ourteam = () => {
           </div>
         </div>
         
-        {/* Background decorative elements */}
+        
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37] rounded-full opacity-5 -translate-x-30 -translate-y-10"></div>
         <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#E8B4B8] rounded-full opacity-5 translate-x-20 translate-y-20"></div>
-      </section>
-
+      </section> */}
        {/* ===== TEAM SECTION ===== */}
       <section className="py-24">
         <div className="container mx-auto px-5">
@@ -227,7 +226,7 @@ const Ourteam = () => {
           {/* Team grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer ">
             <TeamMember 
-              image="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              image="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
               name="Isabella Rodriguez"
               role="Founder & Creative Director"
               delay="100"

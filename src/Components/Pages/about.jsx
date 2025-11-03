@@ -366,6 +366,10 @@ const About = () => {
               />
             </div>
 
+
+
+
+
             {/* Connecting lines for desktop view */}
             <div className="hidden lg:block absolute inset-0 pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-24 h-24 border-t-2 border-l-2 border-[#E8D9A0] border-dashed rounded-tl-lg"></div>
@@ -376,6 +380,53 @@ const About = () => {
           </div>
         </div>
       </section>
+
+
+{/* our team */}
+
+ <section className="py-20 bg-gradient-to-br relative overflow-hidden">
+        <div className="container mx-auto px-5">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <StatCard 
+              icon="fas fa-users"
+              value="100+"
+              label="Team Members"
+              delay="100"
+              color="from-[#D4AF37] to-[#E8B4B8]"
+            />
+            <StatCard 
+              icon="fas fa-globe-americas"
+              value="15+"
+              label="Countries"
+              delay="200"
+              color="from-[#E8B4B8] to-[#D4AF37]"
+            />
+            <StatCard 
+              icon="fas fa-award"
+              value="50+"
+              label="Awards Won"
+              delay="300"
+              color="from-[#D4AF37] to-[#E8D9A0]"
+            />
+            <StatCard 
+              icon="fas fa-heart"
+              value="30+"
+              label="Years Experience"
+              delay="400"
+              color="from-[#E8D9A0] to-[#E8B4B8]"
+            />
+          </div>
+        </div>
+        
+        
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37] rounded-full opacity-5 -translate-x-30 -translate-y-10"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#E8B4B8] rounded-full opacity-5 translate-x-20 translate-y-20"></div>
+      </section>
+
+
+
+
+
 
       {/* ===== VALUES SECTION ===== */}
       <section className="py-24 bg-gradient-to-br from-[#F5E1E2] to-[#E8D9A0] relative overflow-hidden">
@@ -429,10 +480,14 @@ const About = () => {
             </p>
           </div>
           
+  
+
+
           {/* Team grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer ">
             <TeamMember 
-              image="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                          image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+
               name="Isabella Rodriguez"
               role="Founder & Creative Director"
               delay="100"
@@ -496,6 +551,37 @@ const CounterCard = ({ icon, value, suffix, label, delay, color }) => {
     </div>
   );
 };
+
+
+// our team
+const StatCard = ({ icon, value, label, delay, color }) => {
+  return (
+    <div 
+      className="text-center group cursor-pointer" 
+      data-aos="zoom-in" 
+      data-aos-delay={delay}
+    >
+      <div className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl border-2 border-transparent hover:border-[#F5F1E8]">
+        <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+          <i className={icon}></i>
+        </div>
+        
+        <div className="mb-2">
+          <span className="font-playfair text-3xl md:text-4xl font-bold text-[#3C3C3C]">
+            {value}
+          </span>
+        </div>
+        
+        <p className="text-gray-600 font-medium">{label}</p>
+        
+        <div className={`w-0 h-1 bg-gradient-to-r ${color} mx-auto mt-4 group-hover:w-12 transition-all duration-500`}></div>
+      </div>
+    </div>
+  );
+};
+
+
+
 
 // ===== PROCESS STEP COMPONENT =====
 // Individual step card for the "From Sketch to Stitch" section
