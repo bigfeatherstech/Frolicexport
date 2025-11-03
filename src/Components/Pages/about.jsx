@@ -565,7 +565,7 @@ const TeamMember = ({ image, name, role, delay }) => {
         />
       </div>
       <div className="team-info">
-        <h3 className="font-playfair text-xl font-semibold mb-1">{name}</h3>
+        <h3 className="font-playfair text-xl font-semibold">{name}</h3>
         <p className="text-[#D4AF37] font-medium">{role}</p>
       </div>
     </div>
