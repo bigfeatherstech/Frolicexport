@@ -13,6 +13,7 @@ import Infrastructure from './Components/Pages/Infrastructure';
 import TradeEvents from './Components/Pages/TradeEvents';
 import WhatsApp from './Components/WhatsApp/whatsapp';
 import ProductCategory from './Components/DynamicProductCategory/productcategory';
+import TopTicker from './Components/Common/TopTicker';
 
 function App() {
   useEffect(() => {
@@ -48,7 +49,7 @@ function App() {
     <>
 
     <div className="min-h-screen">
-      {/* <TopTicker/> */}
+      <TopTicker/>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />

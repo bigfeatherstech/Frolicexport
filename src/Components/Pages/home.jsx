@@ -3,6 +3,7 @@ import { featuredCollections, testimonials, partners } from '../DATA/data';
 import ProductDetailModal from '../PoductDetailModal/ProductDetailModal';
 
 
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -23,6 +24,8 @@ import image2 from "../../assets/image2.JPG"
 import image3 from "../../assets/image3.JPG"
 import image9 from "../../assets/image9.jpg"
 import banner2 from "../../assets/banner2.png"
+import banner5 from "../../assets/banner5.png"
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -169,7 +172,7 @@ const handleQuickView = (product) => {
           <div
             className="hidden md:block w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner1})`
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url(${banner5})`
             }}
           />
           
