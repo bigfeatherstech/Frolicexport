@@ -108,18 +108,25 @@ const Footer = () => {
                 Established in 1994, Frolic Exports has been at the forefront of fashion manufacturing,
                 blending traditional craftsmanship with modern innovation to create timeless pieces that empower women worldwide.
               </p>
-              <div className="social-links flex gap-4">
+            <div className="social-links flex gap-4">
                 {[
-                  { icon: 'fab fa-facebook-f', label: 'Facebook', color: 'from-[#D4AF37] to-[#E8B4B8]' },
-                  { icon: 'fab fa-instagram', label: 'Instagram', color: 'from-[#E8B4B8] to-[#D4AF37]' },
-                  { icon: 'fab fa-pinterest-p', label: 'Pinterest', color: 'from-[#D4AF37] to-[#E8D9A0]' },
-                  { icon: 'fab fa-twitter', label: 'Twitter', color: 'from-[#E8D9A0] to-[#D4AF37]' },
-                  { icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'from-[#E8B4B8] to-[#E8D9A0]' }
+                  // { icon: 'fab fa-facebook-f', label: 'Facebook', color: 'from-[#D4AF37] to-[#E8B4B8]' },
+                  { icon: 'fab fa-instagram', label: 'Instagram', color: 'from-[#E8B4B8] to-[#D4AF37]',url:'https://www.instagram.com/' },
+                  { icon: 'fab fa-linkedin-in', label: 'LinkedIn', color: 'from-[#E8B4B8] to-[#E8D9A0]',url:'https://in.linkedin.com/' },
+                  {
+                    icon: 'fas fa-store',
+                    label: 'Google Business',
+                    color: 'from-[#E8B4B8] to-[#E8D9A0]',url:'https://www.google.com/maps/place/Frolic+Exports+Private+Limited/@28.5348926,77.4128891,17z/data=!4m15!1m8!3m7!1s0x390ce4594ea1c535:0x7b3b15f4ec20491a!2sFrolic+Exports+Private+Limited!8m2!3d28.5348926!4d77.4128891!10e1!16s%2Fg%2F1ptz2pv9m!3m5!1s0x390ce4594ea1c535:0x7b3b15f4ec20491a!8m2!3d28.5348926!4d77.4128891!16s%2Fg%2F1ptz2pv9m?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D'
+                  }
+                  // { icon: 'fab fa-pinterest-p', label: 'Pinterest', color: 'from-[#D4AF37] to-[#E8D9A0]' },
+                  // { icon: 'fab fa-twitter', label: 'Twitter', color: 'from-[#E8D9A0] to-[#D4AF37]' },
                 ].map((social, index) => (
                   <a
                     key={social.label}
-                    href="#"
-                    className="group relative w-12 h-12 bg-white bg-opacity-10 rounded-2xl flex items-center justify-center text-white hover:bg-gradient-to-br hover:from-[#D4AF37] hover:to-[#E8B4B8] hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm"
+                    href={social.url}
+                    target="_blank" // Opens link in a new tab
+                    rel="noopener noreferrer" // Security best practice
+                    className={`group relative w-12 h-12 bg-gradient-to-br ${social.color} rounded-2xl flex items-center justify-center text-black transition-all duration-300 cursor-pointer shadow-md hover:shadow-xl hover:-translate-y-2 backdrop-blur-sm`}
                     data-aos="zoom-in"
                     data-aos-delay={index * 100}
                   >
@@ -133,6 +140,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
+
             </div>
 
             {/* Quick Links */}
@@ -140,14 +148,16 @@ const Footer = () => {
               <h3 className="text-xl font-playfair font-semibold mb-6 text-gold bg-gradient-to-r from-[#D4AF37] to-[#E8B4B8] bg-clip-text text-transparent">
                 Quick Links
               </h3>
-              <ul className="footer-links space-y-">
+              <ul className="footer-links">
                 {[
                   { name: 'Home', path: '/' },
                   { name: 'About Us', path: '/about' },
                   { name: 'Products', path: '/products' },
-                  { name: 'Collections', path: '/collections' },
-                  { name: 'Sustainability', path: '/sustainability' },
-                  { name: 'Contact', path: '#contact' }
+                  { name: ' Our Team', path: '/ourteam' },
+                  { name: 'Trade Events', path: '/tradeEvents' },
+                  { name: 'Infrastructure', path: '/infrastructure' },
+                  { name: 'Career', path: '/career' },
+                  { name: 'Contact', path: '/contact' }
                 ].map((link, index) => (
                   <li key={link.name}>
                     <a
@@ -206,7 +216,7 @@ const Footer = () => {
 
           {/* Additional Info Section with Curved Background */}
           <div className="relative mb-12">
-            <div className="absolute inset-0 -mx-5 bg-gradient-to-r from-[#D4AF37]/10 to-[#E8B4B8]/10 rounded-2xl transform rotate-1"></div>
+            <div className="absolute inset-0 -mx-5 bg-gradient-to-r from-[#D4AF37]/10 to-[#E8B4B8]/10 rounded-2xl transform"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 py-">
               <div className="text-center" data-aos="fade-up">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#D4AF37] to-[#E8B4B8] rounded-2xl flex items-center cursor-pointer justify-center text-white text-xl shadow-lg hover:scale-110 transition-transform duration-300">

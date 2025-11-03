@@ -69,7 +69,7 @@ const handleInputChange = (e) => {
     setSubmitStatus(null);
 
     try {
-      const response = await ('https://formsubmit.co/ajax/43189e22c68124815ee9f188d7c6e0d9', {
+      const response = await fetch('https://formsubmit.co/ajax/43189e22c68124815ee9f188d7c6e0d9', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -28,7 +28,7 @@ const BottomToTop = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50">
+    <div className="fixed bottom-7 right-5 z-50">
       {/* Main Button */}
       <button
         onClick={scrollToTop}
